@@ -735,7 +735,7 @@ function addCount(Counter) {
 				newcounter.save(null, {
 					success: function(newcounter) {
 					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = newcounter.get('time');
+						var content = ' | 阅读次数'+newcounter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(newcounter, error) {
