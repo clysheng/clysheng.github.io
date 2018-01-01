@@ -910,7 +910,8 @@ function showTime(Counter) {
 				}
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
-					var content = $(document.getElementById(url)).text() ;
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					console("showTime:"$(document.getElementById(url)).text()) ;
 					$(document.getElementById(url)).text(content);
 				}
 			},
@@ -934,7 +935,10 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() ;
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						console("addCount:"$(document.getElementById(url)).text()) ;
+						console.log("time:",counter.get('time')) ;
+
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {
