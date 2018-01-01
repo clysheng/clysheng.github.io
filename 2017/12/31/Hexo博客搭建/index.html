@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://github.com/images/hexo-7.jpg">
 <meta property="og:image" content="https://github.com/images/hexo-8.jpg">
 <meta property="og:image" content="https://github.com/images/hexo-9.jpg">
-<meta property="og:updated_time" content="2018-01-01T00:50:28.000Z">
+<meta property="og:updated_time" content="2018-01-01T00:59:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一. Hexo+github博客搭建">
 <meta name="twitter:description" content="工具准备安装git点击下载最新版本的git 安装Node.jsHexo是基于nodeJS环境的静态博客，所以需要下载nodejs，点击下载，然后一直安装，安装完成后可以通过node -v查看当前版本，检查是否安装成功 安装hexo现在本地新建一个文件夹，后面用来存放所有的blog的内容  cd到该目录下 通过npm i -g hexo安装hexo 安装完成之后通过hexo -v查看当前版本 初始化">
@@ -904,13 +904,13 @@ function showTime(Counter) {
 		query.find({
 			success: function(results) {
 				if (results.length == 0) {
-					var content = $(document.getElementById(url)).text() + ': 0';
+					var content = $(document.getElementById(url)).text() + ' 0';
 					$(document.getElementById(url)).text(content);
 					return;
 				}
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
-					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
 					$(document.getElementById(url)).text(content);
 				}
 			},
