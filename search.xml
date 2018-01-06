@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[java8默认方法]]></title>
+    <url>%2F2018%2F01%2F06%2Fjava8%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[什么是默认方法java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作 接口内申明静态方法 为接口引用方法提供一个默认的实现 意思就是，你可以为接口提供具体的实现 为什么引入默认方法在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默认方法的引入为接口的功能扩展提供了一个平滑的过度，如果你是一个类库的设计者，那么你可以放心的改进应用程序接口，无需担心遗留代码的影响 如何实现默认方法是由default修饰，并像类中声明的其它方法一样具有方法体，例如123456public interface Sized &#123; int size(); default boolean isEmpty() &#123; return size() == 0; &#125; &#125; 那么所有继承Sized类都会默认继承了isEmpty方法，而不用去实现它，如果想扩展该方法，可以重写它 行为多继承默认方法的引入，让java8可以实现行为的多继承，这是以前无法想象的事情，它让类具有可以从多个来源重用代码的能力 继承不应该成为你一谈到代码复用就试图倚靠的万精油。比如，从一个拥有100个方法及 字段的类进行继承就不是个好主意，因为这其实会引入不必要的复杂性。你完全可以使用代理 有效地规避这种窘境，即创建一个方法通过该类的成员变量直接调用该类的方法。这就是为什 么有的时候我们发现有些类被刻意地声明为final类型:声明为final的类不能被其他的类继 承，避免发生这样的反模式，防止核心代码的功能被污染。注意，有的时候声明为final的类 都会有其不同的原因，比如，String类被声明为final，因为我们不希望有人对这样的核心 功能产生干扰。这种思想同样也适用于使用默认方法的接口。通过精简的接口，你能获得最有效的组合，因为你可以只选择你需要的实现。 解决冲突规则随着默认方法的引入，现在有可能一个类实现了多个接口，它们具有相同的函数签名，例如1234567891011121314public interface A &#123; default void hello() &#123; System.out.println(&quot;Hello from A&quot;); &#125;&#125;public interface B extends A &#123; default void hello() &#123; System.out.println(&quot;Hello from B&quot;);&#125; &#125;public class C implements B, A &#123; public static void main(String... args) &#123; new C().hello(); &#125;&#125; 这种情况类会使用哪一个方法呢，这个问题其实就是菱形继承的问题，一个类同时具有相同函数签名的方法，到底选择哪一种实现，java8为了解决这种问题引入了三条规则 类中的方法优先级最高。类或父类声明的方法优先级高于任何声明默认方法的优先级。 如果无法依据第一条进行判断，那么子接口的优先级更高，函数签名相同时，优先选择拥有具体实现的默认方法接口，如果B继承了A，那么B就比A更具体。 如果上述两条规则还是无法判断，继承了多个接口的类必须通过显示覆盖和调用期望方法，显式的选择使用哪一个默认方法实现。 根据这三条规则，上面的例子可以对照第二条规则，因为B继承了所以B更具体，那么结果打印出来就是Hello From B java8中接口与抽像类的区别现在java8中接口可以有具体的方法，那么他们之间的区别还有哪些 一个类只能继承一个抽象类，但是一个类可以继承多个接口 一个抽象类可以通过实例变量保存一个通用的状态，但是接口不能]]></content>
+      <categories>
+        <category>java8</category>
+      </categories>
+      <tags>
+        <tag>java8</tag>
+        <tag>默认方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[next主题美化]]></title>
+    <url>%2F2018%2F01%2F01%2FNext%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[修改背景如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容12345body &#123; background:url(https://ws2.sinaimg.cn/large/006tNc79ly1fn6s5qdt40j31kw1071kx.jpg); background-attachment: fixed;&#125; 粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018计划清单]]></title>
+    <url>%2F2018%2F01%2F01%2F2018%E8%AE%A1%E5%88%92%E6%B8%85%E5%8D%95%2F</url>
+    <content type="text"><![CDATA[坚持运动以周为单位，每周至少保持运动三次，跑步，羽毛球，篮球，爬山都算每天早起坚持做至少二十个俯卧撑或者至少40个深蹲，数量少，贵在养成坚持的习惯每三个月跑一个十公里 坚持背单词完成百词斩计划，每天新记10个单词每周读懂一篇英语短文每个月记下一篇英语短文 书单下面书籍为2018年想学习的书籍，每天至少保证工作时间外抽出时间学习一个小时 书名 计划完成时间 掌握情况 java8实战 2018-02-10 spring-boot实战 2018-03-10 netty权威指南 2018-05-10 docker 2018-06-10 kafka 2018-06-10 高性能mysql 2018-08-10 spring-cloud 大型网站技术架构 深入理解jm Effective Java 算法导论 把时间当做朋友 除了上述书籍外，想增强的技术还有redis，ngnix抽空看博客学习 关于日常重要的物品养成放在指定地方的习惯，避免日常花费多余的时间找东西养成早起的习惯，工作日六点起床，周末8点前起床的无论工作多忙提醒自己，每天上午下午至少一杯水学会炒菜，目标每两个月会一道菜家里卫生每周至少一次 坚持写博客养成写作的习惯，每个星期至少更新一篇博客，内容形式不限制，可以是技术学习笔记，也可以是生活感悟，也可以是喜欢内容摘抄，通过写作让自己变的不浮躁，养成思考的习惯]]></content>
+      <categories>
+        <category>计划</category>
+      </categories>
+      <tags>
+        <tag>计划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一. Hexo+github博客搭建]]></title>
+    <url>%2F2017%2F12%2F31%2FHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[工具准备安装git点击下载最新版本的git 安装Node.jsHexo是基于nodeJS环境的静态博客，所以需要下载nodejs，点击下载，然后一直安装，安装完成后可以通过node -v查看当前版本，检查是否安装成功 安装hexo现在本地新建一个文件夹，后面用来存放所有的blog的内容 cd到该目录下 通过npm i -g hexo安装hexo 安装完成之后通过hexo -v查看当前版本 初始化命令hexo init,初始化完成后会在当前目录下生成以下文件 node_modules:依赖包 public：存放生成的页面 scaffolds：命令生成文档等的模板 source：用命令创建的各种文章 themes：主题 _config.yml：整个博客的配置 db.json：source解析所得到的 package.json：项目所需要模块配置信息 链接到github创建github账户 点击去github创建一个账户，如果有登录进去 创建一个repository 仓库名字yourname与账户名最好一致，不然后面可能会导致页面css内容无法展示 回到本地gitbash中，配置账户信息命令行输入12git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot; 创建ssh在gitbash中输入1ssh-keygen -t rsa -C &quot;youremail&quot; 生成ssh文件，mac和linux用户在~/ssh下找到id_rsa.pub，复制文件里面内容 将生成的内容粘贴到github 点击下图箭头setting 点击左侧菜单下图箭头指向栏目 点击右上角 将本机id_rsa.pub内容粘贴到key里面 检验是否添加成功，本地gitbash中输入1git -T git@github.com 配置本地blog更改配置文件用编辑器打开hexo init目录下的_config.yml配置文件repo为github上新建的项目地址 注意所有的类型名称冒号后面一定要有空格 预览本地bloghexo3.0把服务器独立成个别模块，需要单独安装1npm i hexo-server 然后执行以下命令清除本地项目缓存1hexo clean 生成最新项目1hexo generate(缩写 hexo g) 启动hexo server1hexo server 如果上述步奏全部正确，打开浏览器输入localhost:4000，就可以看到本地项目预览了 上传到github要想blog被其他人也能访问到,就要上传到*githubgitbash中执行1npm install hexo-deployer-git --save 按着下列步骤将本地项目上传到*github123hexo cleanhexo generatehexo server 访问bloggithub中打开blog项目，点击setting下列箭头指向的即为blog访问地址 至此大功告成]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F12%2F30%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[制作一个基于集成java和tomcat的docker镜像]]></title>
+    <url>%2F2017%2F12%2F12%2F%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAdocker%E9%95%9C%E5%83%8F%2F</url>
+    <content type="text"><![CDATA[根据当前所处平台安装docker准备安装java，tomcat需要的安装包制作镜像编写DockerFile构建DockerFile1docker build -t java7_tomcat7:v1 . java7_tomcat7：构建后镜像名字 v1：构建后的镜像tag .：当前路径 查看镜像构建成功以后可以通过1docker images 查看构建成功后的镜像 启动容器输出一个Hello World之后终止容器1sudo docker run ubuntu:14.04 /bin/echo &apos;Hello World&apos; 启动一个bash终端允许用户交互1sudo docker run -t -i ubuntu:14.0.4 /bin/bash 其中-t表示让Docker分配一个伪终端并绑定在标准输入,-i则表示标准输入保持打开 1sudo docker run -t -i -p 9999:8080 ubuntu:14.0.4 /bin/bash -p后面的端口，表示将宿主机器的9999端口绑定到容器的8080端口，可以通过宿主机器ip+9999端口，访问容器内的服务。 进入正在运行的容器1docker attach 44fc0f0582d9 后面的字符串为容器id可以通过1docker ps 查看正在运行的容器1docker ps -a 查看所有的容器 为镜像打标签1docker tag vpjr:v1 clysheng/vpjr:v1 vpjr:v1本地镜像名字和tag名字clysheng/vpjr:v1 :修改后的名字 上传镜像到dockerhub1docker push clysheng/vpjr:v1 可以先通过1docker login 登录]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+</search>
