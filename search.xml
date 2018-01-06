@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[工作中一次触发器的使用]]></title>
+    <url>%2F2018%2F01%2F06%2F%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%B8%80%E6%AC%A1%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[需求 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的状态， 实现 具体代码如下123456789CREATE TRIGGER triggerNameBEFORE INSERT ON tableNameFOR EACH ROWBEGIN if (NEW.phone=&apos;xxx&apos;) THEN set NEW.deal_flag=1 ; end if;END 在创建触发器时，需要给出4条信息： 唯一的触发器名； 触发器关联的表 触发器应该响应的动作（ DELETE、INSERT 或UPDATE） 触发器何时执行（处理之前或之后）。]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>触发器</tag>
+        <tag>工作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java8默认方法]]></title>
     <url>%2F2018%2F01%2F06%2Fjava8%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[什么是默认方法java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作 接口内申明静态方法 为接口引用方法提供一个默认的实现 意思就是，你可以为接口提供具体的实现 为什么引入默认方法在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默认方法的引入为接口的功能扩展提供了一个平滑的过度，如果你是一个类库的设计者，那么你可以放心的改进应用程序接口，无需担心遗留代码的影响 如何实现默认方法是由default修饰，并像类中声明的其它方法一样具有方法体，例如123456public interface Sized &#123; int size(); default boolean isEmpty() &#123; return size() == 0; &#125; &#125; 那么所有继承Sized类都会默认继承了isEmpty方法，而不用去实现它，如果想扩展该方法，可以重写它 行为多继承默认方法的引入，让java8可以实现行为的多继承，这是以前无法想象的事情，它让类具有可以从多个来源重用代码的能力 继承不应该成为你一谈到代码复用就试图倚靠的万精油。比如，从一个拥有100个方法及 字段的类进行继承就不是个好主意，因为这其实会引入不必要的复杂性。你完全可以使用代理 有效地规避这种窘境，即创建一个方法通过该类的成员变量直接调用该类的方法。这就是为什 么有的时候我们发现有些类被刻意地声明为final类型:声明为final的类不能被其他的类继 承，避免发生这样的反模式，防止核心代码的功能被污染。注意，有的时候声明为final的类 都会有其不同的原因，比如，String类被声明为final，因为我们不希望有人对这样的核心 功能产生干扰。这种思想同样也适用于使用默认方法的接口。通过精简的接口，你能获得最有效的组合，因为你可以只选择你需要的实现。 解决冲突规则随着默认方法的引入，现在有可能一个类实现了多个接口，它们具有相同的函数签名，例如1234567891011121314public interface A &#123; default void hello() &#123; System.out.println(&quot;Hello from A&quot;); &#125;&#125;public interface B extends A &#123; default void hello() &#123; System.out.println(&quot;Hello from B&quot;);&#125; &#125;public class C implements B, A &#123; public static void main(String... args) &#123; new C().hello(); &#125;&#125; 这种情况类会使用哪一个方法呢，这个问题其实就是菱形继承的问题，一个类同时具有相同函数签名的方法，到底选择哪一种实现，java8为了解决这种问题引入了三条规则 类中的方法优先级最高。类或父类声明的方法优先级高于任何声明默认方法的优先级。 如果无法依据第一条进行判断，那么子接口的优先级更高，函数签名相同时，优先选择拥有具体实现的默认方法接口，如果B继承了A，那么B就比A更具体。 如果上述两条规则还是无法判断，继承了多个接口的类必须通过显示覆盖和调用期望方法，显式的选择使用哪一个默认方法实现。 根据这三条规则，上面的例子可以对照第二条规则，因为B继承了所以B更具体，那么结果打印出来就是Hello From B java8中接口与抽像类的区别现在java8中接口可以有具体的方法，那么他们之间的区别还有哪些 一个类只能继承一个抽象类，但是一个类可以继承多个接口 一个抽象类可以通过实例变量保存一个通用的状态，但是接口不能]]></content>
@@ -15,7 +27,7 @@
   <entry>
     <title><![CDATA[next主题美化]]></title>
     <url>%2F2018%2F01%2F01%2FNext%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[修改背景如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容12345body &#123; background:url(/images/background-1.jpeg); background-attachment: fixed;&#125; 粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展]]></content>
+    <content type="text"><![CDATA[修改背景如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容12345body &#123; background:url(/images/background-1.jpeg); background-attachment: fixed;&#125; 粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展 添加搜索当前主题为next5.1.3版本，选择algolia做为站内搜索安装教程可以参考官方文档需要注意的是，按照文档完成之后，可以在algolia网站进行测试但是不管是搜索title，还是tag都搜索不到任何信息，经过多次测试发现默认是按着name匹配可以在下图处添加匹配字段而且可以调整匹配顺序，最终测试可以搜索到]]></content>
       <categories>
         <category>hexo</category>
       </categories>
