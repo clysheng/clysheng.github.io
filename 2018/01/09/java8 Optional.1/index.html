@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="java8,默认方法," />
+  <meta name="keywords" content="java8,Optional," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="什么是默认方法java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作  接口内申明静态方法 为接口引用方法提供一个默认的实现   意思就是，你可以为接口提供具体的实现 为什么引入默认方法在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默">
-<meta name="keywords" content="java8,默认方法">
+<meta name="description" content="null引发的问题null最常见带来的问题就是NullPointerException，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误 Optional的作用能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Opt">
+<meta name="keywords" content="java8,Optional">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java8默认方法">
-<meta property="og:url" content="http://clysheng.coding.me/2018/01/06/java8默认方法/index.html">
+<meta property="og:title" content="Optional">
+<meta property="og:url" content="http://clysheng.coding.me/2018/01/09/java8 Optional.1/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="什么是默认方法java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作  接口内申明静态方法 为接口引用方法提供一个默认的实现   意思就是，你可以为接口提供具体的实现 为什么引入默认方法在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默">
+<meta property="og:description" content="null引发的问题null最常见带来的问题就是NullPointerException，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误 Optional的作用能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Opt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-09T13:46:31.215Z">
+<meta property="og:updated_time" content="2018-01-10T04:02:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java8默认方法">
-<meta name="twitter:description" content="什么是默认方法java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作  接口内申明静态方法 为接口引用方法提供一个默认的实现   意思就是，你可以为接口提供具体的实现 为什么引入默认方法在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默">
+<meta name="twitter:title" content="Optional">
+<meta name="twitter:description" content="null引发的问题null最常见带来的问题就是NullPointerException，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误 Optional的作用能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Opt">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://clysheng.coding.me/2018/01/06/java8默认方法/"/>
+  <link rel="canonical" href="http://clysheng.coding.me/2018/01/09/java8 Optional.1/"/>
 
 
 
 
 
-  <title>java8默认方法 | Harvey's blog</title>
+  <title>Optional | Harvey's blog</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://clysheng.coding.me/2018/01/06/java8默认方法/">
+    <link itemprop="mainEntityOfPage" href="http://clysheng.coding.me/2018/01/09/java8 Optional.1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Harvey">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java8默认方法</h1>
+          <h1 class="post-title" itemprop="name headline">Optional</h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T09:30:00+08:00">
-                2018-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-09T09:30:00+08:00">
+                2018-01-09
               </time>
             
 
@@ -392,32 +392,70 @@
       
 
       
-        <h2 id="什么是默认方法"><a href="#什么是默认方法" class="headerlink" title="什么是默认方法"></a>什么是默认方法</h2><p>java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作</p>
-<ul>
-<li>接口内申明静态方法</li>
-<li>为接口引用方法提供一个默认的实现 </li>
-</ul>
-<p>意思就是，你可以为接口提供具体的实现</p>
-<h2 id="为什么引入默认方法"><a href="#为什么引入默认方法" class="headerlink" title="为什么引入默认方法"></a>为什么引入默认方法</h2><p>在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默认方法的引入为接口的功能扩展提供了一个平滑的过度，如果你是一个类库的设计者，那么你可以放心的改进应用程序接口，无需担心遗留代码的影响</p>
-<h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><p>默认方法是由default修饰，并像类中声明的其它方法一样具有方法体，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public interface Sized &#123;</span><br><span class="line">    int size();</span><br><span class="line">    default boolean isEmpty() &#123;</span><br><span class="line">        return size() == 0;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么所有继承Sized类都会默认继承了<strong><em>isEmpty</em></strong>方法，而不用去实现它，如果想扩展该方法，可以重写它</p>
-<h2 id="行为多继承"><a href="#行为多继承" class="headerlink" title="行为多继承"></a>行为多继承</h2><p>默认方法的引入，让java8可以实现行为的多继承，这是以前无法想象的事情，它让类具有可以从多个来源重用代码的能力</p>
-<blockquote>
-<p> 继承不应该成为你一谈到代码复用就试图倚靠的万精油。比如，从一个拥有100个方法及 字段的类进行继承就不是个好主意，因为这其实会引入不必要的复杂性。你完全可以使用代理 有效地规避这种窘境，即创建一个方法通过该类的成员变量直接调用该类的方法。这就是为什 么有的时候我们发现有些类被刻意地声明为final类型:声明为final的类不能被其他的类继 承，避免发生这样的反模式，防止核心代码的功能被污染。注意，有的时候声明为final的类 都会有其不同的原因，比如，String类被声明为final，因为我们不希望有人对这样的核心 功能产生干扰。这种思想同样也适用于使用默认方法的接口。通过精简的接口，你能获得最有效的组合，因为你可以只选择你需要的实现。</p>
-</blockquote>
-<h2 id="解决冲突规则"><a href="#解决冲突规则" class="headerlink" title="解决冲突规则"></a>解决冲突规则</h2><p>随着默认方法的引入，现在有可能一个类实现了多个接口，它们具有相同的函数签名，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public interface A &#123;</span><br><span class="line">    default void hello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello from A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public interface B extends A &#123;</span><br><span class="line">    default void hello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello from B&quot;);</span><br><span class="line">&#125; &#125;</span><br><span class="line">public class C implements B, A &#123;</span><br><span class="line">    public static void main(String... args) &#123;</span><br><span class="line">        new C().hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种情况类会使用哪一个方法呢，这个问题其实就是菱形继承的问题，一个类同时具有相同函数签名的方法，到底选择哪一种实现，java8为了解决这种问题引入了三条规则</p>
-<ol>
-<li>类中的方法优先级最高。类或父类声明的方法优先级高于任何声明默认方法的优先级。</li>
-<li>如果无法依据第一条进行判断，那么子接口的优先级更高，函数签名相同时，优先选择拥有具体实现的默认方法接口，如果B继承了A，那么B就比A更具体。</li>
-<li>如果上述两条规则还是无法判断，继承了多个接口的类必须通过显示覆盖和调用期望方法，显式的选择使用哪一个默认方法实现。</li>
-</ol>
-<p>根据这三条规则，上面的例子可以对照第二条规则，因为B继承了所以B更具体，那么结果打印出来就是<strong><em>Hello From B</em></strong></p>
-<h2 id="java8中接口与抽像类的区别"><a href="#java8中接口与抽像类的区别" class="headerlink" title="java8中接口与抽像类的区别"></a>java8中接口与抽像类的区别</h2><p>现在java8中接口可以有具体的方法，那么他们之间的区别还有哪些</p>
-<ul>
-<li>一个类只能继承一个抽象类，但是一个类可以继承多个接口</li>
-<li>一个抽象类可以通过实例变量保存一个通用的状态，但是接口不能</li>
-</ul>
+        <h2 id="null引发的问题"><a href="#null引发的问题" class="headerlink" title="null引发的问题"></a>null引发的问题</h2><p>null最常见带来的问题就是<strong><em>NullPointerException</em></strong>，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误</p>
+<h2 id="Optional的作用"><a href="#Optional的作用" class="headerlink" title="Optional的作用"></a>Optional的作用</h2><p>能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Optional 类的意图并非要消除每一个null引用。与此相反，它的目标是帮助你更好地设计出普适的API， 让程序员看到方法签名，就能了解它是否接受一个Optional的值。这种强制会让你更积极地将 变量从Optional中解包出来，直面缺失的变量值。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="创建Optional对象"><a href="#创建Optional对象" class="headerlink" title="创建Optional对象"></a>创建Optional对象</h3><h4 id="声明一个空的Optional"><a href="#声明一个空的Optional" class="headerlink" title="声明一个空的Optional"></a>声明一个空的Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; car = Optional.empty() ;</span><br></pre></td></tr></table></figure>
+<h4 id="依据一个非空值创建Optional"><a href="#依据一个非空值创建Optional" class="headerlink" title="依据一个非空值创建Optional"></a>依据一个非空值创建Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car car = null ;</span><br><span class="line">Optional&lt;Car&gt; carOpt = Optional.of(car) ;</span><br></pre></td></tr></table></figure>
+<p>如果car是一个空值，这段代码会立即抛出<strong><em>NullPointerException</em></strong>，而不是等到试图访问car属性的时候</p>
+<h4 id="可接受null的Optional"><a href="#可接受null的Optional" class="headerlink" title="可接受null的Optional"></a>可接受null的Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car car = null ;</span><br><span class="line">Optional&lt;Car&gt; carOpt = Optional.ofNullable(car) ;</span><br></pre></td></tr></table></figure>
+<p>如果car是空那么carOpt就是一个空对象，获取对象中的值的时候依然会抛出异常</p>
+<h3 id="一点注意"><a href="#一点注意" class="headerlink" title="一点注意"></a>一点注意</h3><p>Optional在设计的时候没有考虑做为类的字段使用，所以它并未实现序列化接口，所以某些要求序列的库或框架中使用Optional有可能会引发应用故障<br></p>
+<h2 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty</td>
+<td style="text-align:center">返回一个空的 Optional 实例</td>
+</tr>
+<tr>
+<td>flatMap</td>
+<td style="text-align:center">如果值存在，就对该值执行提供的 mapping 函数调用，返回一个 Optional 类型的值，否则就返回一个空的 Optional 对象</td>
+</tr>
+<tr>
+<td>get</td>
+<td style="text-align:center">如果该值存在，将该值用 Optional 封装返回，否则抛出一个 NoSuchElementException 异常</td>
+</tr>
+<tr>
+<td>ifPresent</td>
+<td style="text-align:center">如果值存在，就执行使用该值的方法调用，否则什么也不做</td>
+</tr>
+<tr>
+<td>isPresent</td>
+<td style="text-align:center">如果值存在就返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>map</td>
+<td style="text-align:center">如果值存在，就对该值执行提供的 mapping 函数调用</td>
+</tr>
+<tr>
+<td>of</td>
+<td style="text-align:center">将指定值用 Optional 封装之后返回，如果该值为 null，则抛出一个 NullPointerException 异常</td>
+</tr>
+<tr>
+<td>ofNullable</td>
+<td style="text-align:center">将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象</td>
+</tr>
+<tr>
+<td>orElse</td>
+<td style="text-align:center">如果有值则将其返回，否则返回一个默认值</td>
+</tr>
+<tr>
+<td>orElseGet</td>
+<td style="text-align:center">如果有值则将其返回，否则返回一个由指定的 Supplier 接口生成的值</td>
+</tr>
+<tr>
+<td>orElseThrow</td>
+<td style="text-align:center">如果有值则将其返回，否则抛出一个由指定的 Supplier 接口生成的异常</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实战例子"><a href="#实战例子" class="headerlink" title="实战例子"></a>实战例子</h2><p>返回一个正整数，如果小于0或者不存在则返回0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Properties properties = new Properties() ;</span><br><span class="line">properties.put(&quot;a&quot;,1) ;</span><br><span class="line">properties.put(&quot;b&quot;,-5) ;</span><br><span class="line">properties.put(&quot;c&quot;,1) ;</span><br><span class="line"></span><br><span class="line"> public int getValueOptional(Properties properties,String name)&#123;</span><br><span class="line">    return Optional.ofNullable(properties.getProperty(name)).flatMap(OptionalTest::stringToInt).filter(i -&gt; i&gt;0).orElse(0) ;</span><br><span class="line">&#125;</span><br><span class="line">public static Optional&lt;Integer&gt; stringToInt(String s) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        return Optional.of(Integer.parseInt(s));</span><br><span class="line">    &#125; catch (NumberFormatException e) &#123;</span><br><span class="line">        return Optional.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过这个例子可以看出，Optional加入丰富了语意，减少了之前很多不必要的if判断，代码更简洁直观</p>
 
       
     </div>
@@ -437,7 +475,7 @@
           
             <a href="/tags/java8/" rel="tag"># java8</a>
           
-            <a href="/tags/默认方法/" rel="tag"># 默认方法</a>
+            <a href="/tags/Optional/" rel="tag"># Optional</a>
           
         </div>
       
@@ -450,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/01/Next主题美化/" rel="next" title="next主题美化">
-                <i class="fa fa-chevron-left"></i> next主题美化
+              <a href="/2018/01/06/工作中一次触发器的使用/" rel="next" title="工作中一次触发器的使用">
+                <i class="fa fa-chevron-left"></i> 工作中一次触发器的使用
               </a>
             
           </div>
@@ -460,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/06/工作中一次触发器的使用/" rel="prev" title="工作中一次触发器的使用">
-                工作中一次触发器的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/09/如何阅读一本书/" rel="prev" title="如何阅读一本书">
+                如何阅读一本书 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -616,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是默认方法"><span class="nav-number">1.</span> <span class="nav-text">什么是默认方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么引入默认方法"><span class="nav-number">2.</span> <span class="nav-text">为什么引入默认方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现"><span class="nav-number">3.</span> <span class="nav-text">如何实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行为多继承"><span class="nav-number">4.</span> <span class="nav-text">行为多继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决冲突规则"><span class="nav-number">5.</span> <span class="nav-text">解决冲突规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java8中接口与抽像类的区别"><span class="nav-number">6.</span> <span class="nav-text">java8中接口与抽像类的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null引发的问题"><span class="nav-number">1.</span> <span class="nav-text">null引发的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional的作用"><span class="nav-number">2.</span> <span class="nav-text">Optional的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Optional对象"><span class="nav-number">3.1.</span> <span class="nav-text">创建Optional对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明一个空的Optional"><span class="nav-number">3.1.1.</span> <span class="nav-text">声明一个空的Optional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依据一个非空值创建Optional"><span class="nav-number">3.1.2.</span> <span class="nav-text">依据一个非空值创建Optional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可接受null的Optional"><span class="nav-number">3.1.3.</span> <span class="nav-text">可接受null的Optional</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一点注意"><span class="nav-number">3.2.</span> <span class="nav-text">一点注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用API"><span class="nav-number">4.</span> <span class="nav-text">常用API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战例子"><span class="nav-number">5.</span> <span class="nav-text">实战例子</span></a></li></ol></div>
             
 
           </div>
