@@ -12,17 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[同时发布到Coding和GitHub的方法]]></title>
-    <url>%2F2018%2F01%2F10%2F%E5%90%8C%E6%97%B6%E5%8F%91%E5%B8%83%E5%88%B0Coding%E5%92%8CGitHub%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Optional]]></title>
     <url>%2F2018%2F01%2F09%2Fjava8%20Optional.1%2F</url>
     <content type="text"><![CDATA[null引发的问题null最常见带来的问题就是NullPointerException，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误 Optional的作用能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Optional 类的意图并非要消除每一个null引用。与此相反，它的目标是帮助你更好地设计出普适的API， 让程序员看到方法签名，就能了解它是否接受一个Optional的值。这种强制会让你更积极地将 变量从Optional中解包出来，直面缺失的变量值。 如何使用创建Optional对象声明一个空的Optional1Optional&lt;Car&gt; car = Optional.empty() ; 依据一个非空值创建Optional12Car car = null ;Optional&lt;Car&gt; carOpt = Optional.of(car) ; 如果car是一个空值，这段代码会立即抛出NullPointerException，而不是等到试图访问car属性的时候 可接受null的Optional12Car car = null ;Optional&lt;Car&gt; carOpt = Optional.ofNullable(car) ; 如果car是空那么carOpt就是一个空对象，获取对象中的值的时候依然会抛出异常 一点注意Optional在设计的时候没有考虑做为类的字段使用，所以它并未实现序列化接口，所以某些要求序列的库或框架中使用Optional有可能会引发应用故障 常用API 方法 描述 empty 返回一个空的 Optional 实例 flatMap 如果值存在，就对该值执行提供的 mapping 函数调用，返回一个 Optional 类型的值，否则就返回一个空的 Optional 对象 get 如果该值存在，将该值用 Optional 封装返回，否则抛出一个 NoSuchElementException 异常 ifPresent 如果值存在，就执行使用该值的方法调用，否则什么也不做 isPresent 如果值存在就返回 true，否则返回 false map 如果值存在，就对该值执行提供的 mapping 函数调用 of 将指定值用 Optional 封装之后返回，如果该值为 null，则抛出一个 NullPointerException 异常 ofNullable 将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象 orElse 如果有值则将其返回，否则返回一个默认值 orElseGet 如果有值则将其返回，否则返回一个由指定的 Supplier 接口生成的值 orElseThrow 如果有值则将其返回，否则抛出一个由指定的 Supplier 接口生成的异常 实战例子返回一个正整数，如果小于0或者不存在则返回0123456789101112131415Properties properties = new Properties() ;properties.put(&quot;a&quot;,1) ;properties.put(&quot;b&quot;,-5) ;properties.put(&quot;c&quot;,1) ; public int getValueOptional(Properties properties,String name)&#123; return Optional.ofNullable(properties.getProperty(name)).flatMap(OptionalTest::stringToInt).filter(i -&gt; i&gt;0).orElse(0) ;&#125;public static Optional&lt;Integer&gt; stringToInt(String s) &#123; try &#123; return Optional.of(Integer.parseInt(s)); &#125; catch (NumberFormatException e) &#123; return Optional.empty(); &#125;&#125; 通过这个例子可以看出，Optional加入丰富了语意，减少了之前很多不必要的if判断，代码更简洁直观]]></content>
@@ -61,7 +50,7 @@
   <entry>
     <title><![CDATA[next主题美化]]></title>
     <url>%2F2018%2F01%2F01%2FNext%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[修改背景如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容12345body &#123; background:url(/images/background-1.jpeg); background-attachment: fixed;&#125; 粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展 添加搜索当前主题为next5.1.3版本，选择algolia做为站内搜索安装教程可以参考官方文档需要注意的是，按照文档完成之后，可以在algolia网站进行测试但是不管是搜索title，还是tag都搜索不到任何信息，经过多次测试发现默认是按着name匹配可以在下图处添加匹配字段而且可以调整匹配顺序，最终测试可以搜索到]]></content>
+    <content type="text"><![CDATA[修改背景如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容12345body &#123; background:url(/images/background-1.jpeg); background-attachment: fixed;&#125; 粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展 添加搜索当前主题为next5.1.3版本，选择algolia做为站内搜索安装教程可以参考官方文档需要注意的是，按照文档完成之后，可以在algolia网站进行测试但是不管是搜索title，还是tag都搜索不到任何信息，经过多次测试发现默认是按着name匹配可以在下图处添加匹配字段而且可以调整匹配顺序，最终测试可以搜索到 首页文章显示预览themes-&gt;next目录下，打开配置文件_config.yml搜索auto_excerpt，将下列内容123auto_excerpt: enable: true length: 150 enable的值改为false即可]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
