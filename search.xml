@@ -81,11 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F12%2F30%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[制作一个基于集成java和tomcat的docker镜像]]></title>
     <url>%2F2017%2F12%2F12%2F%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAdocker%E9%95%9C%E5%83%8F%2F</url>
     <content type="text"><![CDATA[根据当前所处平台安装docker准备安装java，tomcat需要的安装包制作镜像编写DockerFile构建DockerFile1docker build -t java7_tomcat7:v1 . java7_tomcat7：构建后镜像名字 v1：构建后的镜像tag .：当前路径 查看镜像构建成功以后可以通过1docker images 查看构建成功后的镜像 启动容器输出一个Hello World之后终止容器1sudo docker run ubuntu:14.04 /bin/echo &apos;Hello World&apos; 启动一个bash终端允许用户交互1sudo docker run -t -i ubuntu:14.0.4 /bin/bash 其中-t表示让Docker分配一个伪终端并绑定在标准输入,-i则表示标准输入保持打开 1sudo docker run -t -i -p 9999:8080 ubuntu:14.0.4 /bin/bash -p后面的端口，表示将宿主机器的9999端口绑定到容器的8080端口，可以通过宿主机器ip+9999端口，访问容器内的服务。 进入正在运行的容器1docker attach 44fc0f0582d9 后面的字符串为容器id可以通过1docker ps 查看正在运行的容器1docker ps -a 查看所有的容器 为镜像打标签1docker tag vpjr:v1 clysheng/vpjr:v1 vpjr:v1本地镜像名字和tag名字clysheng/vpjr:v1 :修改后的名字 上传镜像到dockerhub1docker push clysheng/vpjr:v1 可以先通过1docker login 登录]]></content>
