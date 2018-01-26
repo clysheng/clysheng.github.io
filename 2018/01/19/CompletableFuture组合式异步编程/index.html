@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Harvey&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Harvey's Blog" />
+  
+  <meta name="description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harvey&#39;s blog">
+<meta property="og:url" content="http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/index.html">
+<meta property="og:site_name" content="Harvey&#39;s blog">
+<meta property="og:description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-24T13:29:55.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Harvey&#39;s blog">
+<meta name="twitter:description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Harvey&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Harvey&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        在牛逼的梦想，也抵不过傻逼式的坚持
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>title: CompletableFuture:组合式异步编程<br>date: 2018-01-19 15:00:00<br>tags: [java8]<br>category: java8<br>cover_picture: <a href="https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg" target="_blank" rel="noopener">https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg</a></p>
+<h2 id="组合式编程的优势"><a href="#组合式编程的优势" class="headerlink" title="组合式编程的优势"></a>组合式编程的优势</h2><p>不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。</p>
+<h2 id="使用CompletableFuture构建异步应用"><a href="#使用CompletableFuture构建异步应用" class="headerlink" title="使用CompletableFuture构建异步应用"></a>使用CompletableFuture构建异步应用</h2><p>通过一个例子来描述：</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。</p>
+<h3 id="通过代码描述同步和异步的实现区别"><a href="#通过代码描述同步和异步的实现区别" class="headerlink" title="通过代码描述同步和异步的实现区别"></a>通过代码描述同步和异步的实现区别</h3><h4 id="同步的实现方式"><a href="#同步的实现方式" class="headerlink" title="同步的实现方式"></a>同步的实现方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Shop &#123;</span><br><span class="line"></span><br><span class="line">    private Random random = new Random() ;</span><br><span class="line"></span><br><span class="line">    public double getPrice(String product)&#123;</span><br><span class="line">        return calculatePrice(product) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 模拟查询延迟</span><br><span class="line">     */</span><br><span class="line">    public static void delay() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(1000L);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 随机返回一个价格</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private double calculatePrice(String product) &#123;</span><br><span class="line">        delay();</span><br><span class="line">        return random.nextDouble() * product.charAt(0) + product.charAt(1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次查询需要1s，如果同时查询多个商店价格，每一个都要等前一个查询完毕才能执行，耗时过长，而且浪费cpu性能。</p>
+<h4 id="异步的实现"><a href="#异步的实现" class="headerlink" title="异步的实现"></a>异步的实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class ShopSync &#123;</span><br><span class="line">    private Random random = new Random() ;</span><br><span class="line">    /**</span><br><span class="line">     * 创建异步计算对象</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public Future&lt;Double&gt; getPriceAsync(String product) &#123;</span><br><span class="line">        CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;();</span><br><span class="line">            new Thread( () -&gt; &#123;</span><br><span class="line">            double price = calculatePrice(product);</span><br><span class="line">            futurePrice.complete(price);</span><br><span class="line">         &#125;).start();</span><br><span class="line">        return futurePrice;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 模拟查询延迟</span><br><span class="line">     */</span><br><span class="line">    public static void delay() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(1000L);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 随机返回一个价格</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private double calculatePrice(String product) &#123;</span><br><span class="line">        delay();</span><br><span class="line">        return random.nextDouble() * product.charAt(0) + product.charAt(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建了一个代表异步计算的CompletableFuture实例，计算完成时包含计算结果，它创建了另外一个线程去执行计算，而实时返回一个Future实例，但最终结果计算出来，可以通过<strong><em>get</em></strong>方法得到最终结果。</p>
+<p>这样做的优势是，当第一家商店的价格未计算出来之前，可以继续查询其它商店价格，应用不会被阻塞。</p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>如果价格计算过程中产生了错误，会是一个很糟糕的结果，因为提示错误的异常会被限制在试图计算商品价格的当前范围内，最终会杀死该线程，导致等待get方法返回结果的的客户端永久地被阻塞。如何避免呢，实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public Future&lt;Double&gt; getPriceAsync(String product)&#123;</span><br><span class="line">    CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;();</span><br><span class="line">    new Thread(</span><br><span class="line">            () -&gt; &#123;</span><br><span class="line">                try&#123;</span><br><span class="line">                    double price = calculatePrice(product);</span><br><span class="line">                    futurePrice.complete(price);</span><br><span class="line">                &#125;catch (Exception ex)&#123;</span><br><span class="line">                    futurePrice.completeExceptionally(ex) ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    ).start(); ;</span><br><span class="line">    return futurePrice ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这种方式线程内部会抛出一个<strong><em>Exception</em></strong>异常，客户端不需要一直阻塞下去了，而是得到抛出异常消息。</p>
+<h3 id="使用工厂方法supplyAsync创建CompletableFuture"><a href="#使用工厂方法supplyAsync创建CompletableFuture" class="headerlink" title="使用工厂方法supplyAsync创建CompletableFuture"></a>使用工厂方法supplyAsync创建CompletableFuture</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Future&lt;Double&gt; getPriceAsync(String product) &#123;</span><br><span class="line">        return CompletableFuture.supplyAsync(() -&gt; calculatePrice(product));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>提供了和上面异常处理例子同样的错误管理机制</p>
+<h3 id="新背景"><a href="#新背景" class="headerlink" title="新背景"></a>新背景</h3><p>以异步的方式查询多个商店，避免被单一的请求所阻塞，由此提升价格查询器的性能和吞吐量。</p>
+<h3 id="代码重构"><a href="#代码重构" class="headerlink" title="代码重构"></a>代码重构</h3><p>首先提供一个商家列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;)) ;</span><br></pre></td></tr></table></figure>
+<p>查询所有商品价格，返回一个List列表</p>
+<p>采用顺序查询的方式,以stream流的方式实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        return shops.stream().map(</span><br><span class="line">                shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product))</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>验证该方式的执行性能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">long start = System.nanoTime();</span><br><span class="line">        System.out.println(getPrices(&quot;myPhone27S&quot;));</span><br><span class="line">        long duration = (System.nanoTime() - start) / 1_000_000;</span><br><span class="line">        System.out.println(&quot;Done in &quot; + duration + &quot; msecs&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is 132.83, szshop price is 217.36, gzshop price is 189.29, cqshop price is 202.46, hzshop price is 124.39, njshop price is 170.00, wqshop price is 207.80, syshop price is 127.27, zzshop price is 140.72, whshop price is 145.39, jlshop price is 148.55]</span><br><span class="line">Done in 11161 msecs</span><br></pre></td></tr></table></figure>
+<p>采用并行流的方式任然进行该操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        return shops.parallelStream().map(</span><br><span class="line">                shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product))</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is 172.67, szshop price is 130.66, gzshop price is 128.48, cqshop price is 187.36, hzshop price is 151.71, njshop price is 227.09, wqshop price is 151.64, syshop price is 201.61, zzshop price is 204.35, whshop price is 141.16, jlshop price is 173.75]</span><br><span class="line">Done in 2127 msecs</span><br></pre></td></tr></table></figure>
+<p>采用CompletableFuture的方式任然执行该操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">       List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">               new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">               ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">       ) ;</span><br><span class="line">       List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map(</span><br><span class="line">               shop -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                       ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product)</span><br><span class="line">               )</span><br><span class="line">       ).collect(toList()) ;</span><br><span class="line">       return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is227.95307135502128, szshop price is209.0834114771096, gzshop price is180.0509393450812, cqshop price is148.94408809816616, hzshop price is185.99930958873858, njshop price is209.2247143369758, wqshop price is219.53671202996978, syshop price is229.10979442419102, zzshop price is150.8647592512694, whshop price is128.58930830999253, jlshop price is183.3010472086476]</span><br><span class="line">Done in 2097 msecs</span><br></pre></td></tr></table></figure>
+<p>这个地方采用两个stream,主要是考虑操作之前的延迟特性，单一的流水线，发向不通商家的请求只能以同步和顺序执行的方式才会成功</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>通过上述三种方式，我们发现，顺训流最慢，但是并行流和CompletableFuture的方式并没有相差很多，主要原因是他们内部是同样通用的线程池，默认使用固定数目的线程，具体线程数可以采用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Runtime. getRuntime().availableProcessors()</span><br></pre></td></tr></table></figure>
+<p>查看，CompletableFuture允许对执行器<strong><em>Executor</em></strong>进行配置，尤其是线程池大小，让它以更适合应用需求的方式进行配置，</p>
+<h3 id="继续重构"><a href="#继续重构" class="headerlink" title="继续重构"></a>继续重构</h3><p>这次我们使用定制的执行器,继续执行价格查询器的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        Executor executor = Executors.newFixedThreadPool(Math.min(shops.size(), 100),</span><br><span class="line">        new ThreadFactory() &#123;</span><br><span class="line">            public Thread newThread(Runnable r) &#123;</span><br><span class="line">                Thread t = new Thread(r);</span><br><span class="line">                t.setDaemon(true);</span><br><span class="line">                return t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map(</span><br><span class="line">                shop -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                        ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product),executor</span><br><span class="line">                )</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">        return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is195.2661437963214, szshop price is227.33733741114568, gzshop price is182.76554778672724, cqshop price is217.15629799864445, hzshop price is211.64835186412643, njshop price is203.95503485334427, wqshop price is209.7508691664398, syshop price is165.41938531709016, zzshop price is225.43285716654617, whshop price is144.96966191158535, jlshop price is206.97255470003094]</span><br><span class="line">Done in 1084 msecs</span><br></pre></td></tr></table></figure>
+<p>这次我们发现速度提升了，需要注意的是我们创建了一个由守护线程构成的线程池，程序图退出时它会被回收</p>
+<h3 id="如何确定执行器线程数目"><a href="#如何确定执行器线程数目" class="headerlink" title="如何确定执行器线程数目"></a>如何确定执行器线程数目</h3><blockquote>
+<p>《Java并发编程实战》一书中，Brian Goetz和合著者们为线程池大小的优化提供了不少中肯的建议。这非常重要，如果线程池中线程的数量过多，最终它们会竞争稀缺的处理器和内存资源，浪费大量的时间在上下文切换上。反之，如果线程的数目过少，正如你的应用所面临的情况，处理器的一些核可能就无法充分利用。Brian Goetz建议，线程池大小与处理器的利用率之比可以使用下面的公式进行估算:</p>
+<p>Nthreads = NCPU <em> UCPU </em> (1 + W/C)<br>其中:<br>❑NCPU是处理器的核的数目，可以通过Runtime.getRuntime().availableProce-ssors()得到<br>❑UCPU是期望的CPU利用率(该值应该介于0和1之间)<br>❑W/C是等待时间与计算时间的比率</p>
+</blockquote>
+<h3 id="使用流还是CompletableFuture"><a href="#使用流还是CompletableFuture" class="headerlink" title="使用流还是CompletableFuture"></a>使用流还是CompletableFuture</h3><ul>
+<li>如果进行的是计算密集型操作，并且没用I/O，那么推荐使用Stream接口</li>
+<li>如果并行的工作单元还涉及等待I/O操作那么使用CompletableFuture接口灵活性</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年01月24日 21:29</p>
+        <p>原始链接： <a class="post-url" href="/2018/01/19/CompletableFuture组合式异步编程/" title="">http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/</a></p>
+        <footer>
+            <a href="http://mrhe.top">
+                <img src="/images/logo.png" alt="Harvey">
+                Harvey
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&title=Harvey's blog&pic=http://mrhe.topimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&title=Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Harvey's blog&url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&via=http://mrhe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合式编程的优势"><span class="post-toc-text">组合式编程的优势</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用CompletableFuture构建异步应用"><span class="post-toc-text">使用CompletableFuture构建异步应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景"><span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过代码描述同步和异步的实现区别"><span class="post-toc-text">通过代码描述同步和异步的实现区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#同步的实现方式"><span class="post-toc-text">同步的实现方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#异步的实现"><span class="post-toc-text">异步的实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理"><span class="post-toc-text">异常处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用工厂方法supplyAsync创建CompletableFuture"><span class="post-toc-text">使用工厂方法supplyAsync创建CompletableFuture</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新背景"><span class="post-toc-text">新背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码重构"><span class="post-toc-text">代码重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继续重构"><span class="post-toc-text">继续重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何确定执行器线程数目"><span class="post-toc-text">如何确定执行器线程数目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用流还是CompletableFuture"><span class="post-toc-text">使用流还是CompletableFuture</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/16/精力管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">精力管理</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        <!-- Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+      &copy; 2018 Harvey<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://mrhe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/pop-img.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+<script>
+    if (! mihoConfig.isHome) {
+        $(".article-entry img").popImg();
+    }
+</script>
+  </div>
+</body>
+</html>
