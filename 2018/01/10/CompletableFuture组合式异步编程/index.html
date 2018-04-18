@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Harvey&#39;s blog</title>
+  <title>如何阅读一本书 | Harvey&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Harvey's Blog" />
   
-  <meta name="description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+  <meta name="description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
+<meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Harvey&#39;s blog">
-<meta property="og:url" content="http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/index.html">
+<meta property="og:title" content="如何阅读一本书">
+<meta property="og:url" content="http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+<meta property="og:description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T13:29:55.020Z">
+<meta property="og:updated_time" content="2018-04-18T08:57:50.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Harvey&#39;s blog">
-<meta name="twitter:description" content="title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg 组合式编程的优势不需要为等待某些服务的响应阻塞应用的运行，充分的利用">
+<meta name="twitter:title" content="如何阅读一本书">
+<meta name="twitter:description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -95,11 +96,41 @@
         <section id="main" class="body-wrap"><article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      如何阅读一本书
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/读书笔记/">读书笔记</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-01-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>title: CompletableFuture:组合式异步编程<br>date: 2018-01-19 15:00:00<br>tags: [java8]<br>category: java8<br>cover_picture: <a href="https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg" target="_blank" rel="noopener">https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg</a></p>
-<h2 id="组合式编程的优势"><a href="#组合式编程的优势" class="headerlink" title="组合式编程的优势"></a>组合式编程的优势</h2><p>不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。</p>
+            <p>组合式编程的优势</p>
+<p>不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。</p>
 <h2 id="使用CompletableFuture构建异步应用"><a href="#使用CompletableFuture构建异步应用" class="headerlink" title="使用CompletableFuture构建异步应用"></a>使用CompletableFuture构建异步应用</h2><p>通过一个例子来描述：</p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。</p>
 <h3 id="通过代码描述同步和异步的实现区别"><a href="#通过代码描述同步和异步的实现区别" class="headerlink" title="通过代码描述同步和异步的实现区别"></a>通过代码描述同步和异步的实现区别</h3><h4 id="同步的实现方式"><a href="#同步的实现方式" class="headerlink" title="同步的实现方式"></a>同步的实现方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Shop &#123;</span><br><span class="line"></span><br><span class="line">    private Random random = new Random() ;</span><br><span class="line"></span><br><span class="line">    public double getPrice(String product)&#123;</span><br><span class="line">        return calculatePrice(product) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 模拟查询延迟</span><br><span class="line">     */</span><br><span class="line">    public static void delay() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(1000L);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 随机返回一个价格</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private double calculatePrice(String product) &#123;</span><br><span class="line">        delay();</span><br><span class="line">        return random.nextDouble() * product.charAt(0) + product.charAt(1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -146,8 +177,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年01月24日 21:29</p>
-        <p>原始链接： <a class="post-url" href="/2018/01/19/CompletableFuture组合式异步编程/" title="">http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/</a></p>
+        <p>最后更新： 2018年04月18日 16:57</p>
+        <p>原始链接： <a class="post-url" href="/2018/01/10/CompletableFuture组合式异步编程/" title="如何阅读一本书">http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/</a></p>
         <footer>
             <a href="http://mrhe.top">
                 <img src="/images/logo.png" alt="Harvey">
@@ -173,7 +204,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&title=Harvey's blog&pic=http://mrhe.topimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《如何阅读一本书》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -183,22 +214,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&title=Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《如何阅读一本书》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Harvey's blog&url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/&via=http://mrhe.top" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何阅读一本书》 — Harvey's blog&url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&via=http://mrhe.top" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -208,7 +239,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/01/19/CompletableFuture组合式异步编程/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -217,6 +248,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/读书笔记/" class="color5">读书笔记</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -226,16 +264,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合式编程的优势"><span class="post-toc-text">组合式编程的优势</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用CompletableFuture构建异步应用"><span class="post-toc-text">使用CompletableFuture构建异步应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景"><span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过代码描述同步和异步的实现区别"><span class="post-toc-text">通过代码描述同步和异步的实现区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#同步的实现方式"><span class="post-toc-text">同步的实现方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#异步的实现"><span class="post-toc-text">异步的实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理"><span class="post-toc-text">异常处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用工厂方法supplyAsync创建CompletableFuture"><span class="post-toc-text">使用工厂方法supplyAsync创建CompletableFuture</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新背景"><span class="post-toc-text">新背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码重构"><span class="post-toc-text">代码重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继续重构"><span class="post-toc-text">继续重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何确定执行器线程数目"><span class="post-toc-text">如何确定执行器线程数目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用流还是CompletableFuture"><span class="post-toc-text">使用流还是CompletableFuture</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用CompletableFuture构建异步应用"><span class="post-toc-text">使用CompletableFuture构建异步应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景"><span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过代码描述同步和异步的实现区别"><span class="post-toc-text">通过代码描述同步和异步的实现区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#同步的实现方式"><span class="post-toc-text">同步的实现方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#异步的实现"><span class="post-toc-text">异步的实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理"><span class="post-toc-text">异常处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用工厂方法supplyAsync创建CompletableFuture"><span class="post-toc-text">使用工厂方法supplyAsync创建CompletableFuture</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新背景"><span class="post-toc-text">新背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码重构"><span class="post-toc-text">代码重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继续重构"><span class="post-toc-text">继续重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何确定执行器线程数目"><span class="post-toc-text">如何确定执行器线程数目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用流还是CompletableFuture"><span class="post-toc-text">使用流还是CompletableFuture</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
+    <a href="/2018/01/10/如何阅读一本书/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          如何阅读一本书
+        
+      </span>
+    </a>
   
-    <a href="/2018/01/16/精力管理/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">精力管理</span>
+  
+    <a href="/2018/01/10/摘抄/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">摘抄</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -297,10 +345,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -327,7 +375,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
 </div>

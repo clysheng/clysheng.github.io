@@ -93,22 +93,53 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Effective java学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/Effective java学习笔记/"  >EffectiveJava学习笔记</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Java/">Java</a>
+                  
+              </span>
+          
+      </header>
     
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2018/01/19/CompletableFuture组合式异步编程/" >
+            <a href="/2018/04/17/Effective java学习笔记/" >
                 
-                <img src="http://mrhe.top/images/banner.jpg" alt="" title="">
+                <img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fnijf6je7vj30hs07sjrj.jpg" alt="EffectiveJava学习笔记" title="EffectiveJava学习笔记">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                title: CompletableFuture:组合式异步编程date: 2018-01-19 15:00:00tags: [java8]category: java8cover_picture: https://ws4.sinaimg.cn/large/006tKfTcgy1fnijalsnbxj30hk0br754.jpg
-组合式编程的优势不需要为等待某些服务的响应...
+                一.创建和销毁对象1.考虑用静态方工厂方法代替构造器优势：
+
+静态工厂方法有名称，更易于阅读
+不必每次调用的时候都创建一个新对象
+可以返回原返回类型的任何子类型的对象,更灵活
+创建参数化类型实例的时候，他们使代码边的更加简洁
+
+缺点：
+
+类如果不含公有或者受保护的构造器，就不能被子类化
+他们于其它静态方法实际上没有任何区别
+
+2.服务提供者框架三个重要组件：
+
+服务接口(...
             </p>
         </div>
       
@@ -118,12 +149,21 @@
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2018-01-19</li>
+                <li><i class="fa fa-calendar"></i>2018-04-17</li>
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+    <a href="/tags/学习笔记/" class="color5">学习笔记</a>
+      
+  </li>
+
         </ul>
         
-            <a href="/2018/01/19/CompletableFuture组合式异步编程/#more" class="article-more-link" >more&gt;&gt;</a>
+            <a href="/2018/04/17/Effective java学习笔记/#more" class="article-more-link" >more&gt;&gt;</a>
         
     </footer>
   </div>
@@ -163,17 +203,15 @@
         </div>
         <div class="article-feed">
             <p>
-                
-本书作者提出精力就是做事情的能力，包括身体的，情感的，思想和精神的四种精力源。
-
-精力管理模式
+                精力管理模式
 精力管理的日常模式：支出和补充
 精力管理的压力模式：储备和衰竭
 精力管理的压力模式：透支和修复
 
 精力管理四原则精力金字塔：精力管理四要素
 身体层面的精力以数量为计可以通过呼吸，饮食，运动和睡眠等方式调节
-情感层面的精力以质量为计主要包括对自我的认知与接纳，与他人的亲密互动和...
+情感层面的精力以质量为计主要包括对自我的认知与接纳，与他人的亲密互动和常规的人际交往
+思想层面的精力以强度来衡量即持续集中注意力的能力，主要变现为创造力，...
             </p>
         </div>
       
@@ -263,6 +301,140 @@
         </ul>
         
             <a href="/2018/01/10/如何阅读一本书/#more" class="article-more-link" >more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/CompletableFuture组合式异步编程/"  >如何阅读一本书</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/读书笔记/">读书笔记</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/01/10/CompletableFuture组合式异步编程/" >
+                
+                <img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" alt="如何阅读一本书" title="如何阅读一本书">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                组合式编程的优势
+不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。
+使用CompletableFuture构建异步应用通过一个例子来描述：
+背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。
+通过代码描述同步和异步的实现区别同步的实现方式123456789101112131415...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-01-10</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/读书笔记/" class="color5">读书笔记</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/01/10/CompletableFuture组合式异步编程/#more" class="article-more-link" >more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-摘抄" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/摘抄/"  >摘抄</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/摘抄/">摘抄</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/01/10/摘抄/" >
+                
+                <img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" alt="摘抄" title="摘抄">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                关于反思我们在进行反思的过程中，要注意三点:
+
+及时反思，还原事件细节，可用纸笔完成
+思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。
+关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。
+
+
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-01-10</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/摘抄/" class="color3">摘抄</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/01/10/摘抄/#more" class="article-more-link" >more&gt;&gt;</a>
         
     </footer>
   </div>
@@ -603,145 +775,11 @@ Optional的作用能非常清晰地界定出变量值的缺失是结构上的问
 
 
   
-    <article id="post-Hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/31/Hexo博客搭建/"  >一. Hexo+github博客搭建</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Hexo/">Hexo</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/12/31/Hexo博客搭建/" >
-                
-                <img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fnijf6je7vj30hs07sjrj.jpg" alt="一. Hexo+github博客搭建" title="一. Hexo+github博客搭建">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                工具准备安装git点击下载最新版本的git
-安装Node.jsHexo是基于nodeJS环境的静态博客，所以需要下载nodejs，点击下载，然后一直安装，安装完成后可以通过node -v查看当前版本，检查是否安装成功
-安装hexo现在本地新建一个文件夹，后面用来存放所有的blog的内容
-
-cd到该目录下
-通过npm i -g hexo安装hexo
-安装完成之后通过hexo...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-31</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Hexo/" class="color5">Hexo</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2017/12/31/Hexo博客搭建/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
 
 
-  
-    <article id="post-新建一个docker镜像" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/12/新建一个docker镜像/"  >制作一个基于集成java和tomcat的docker镜像</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/docker/">docker</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/12/12/新建一个docker镜像/" >
-                
-                <img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fnijixpm2mj31360kiq3q.jpg" alt="制作一个基于集成java和tomcat的docker镜像" title="制作一个基于集成java和tomcat的docker镜像">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                根据当前所处平台安装docker准备安装java，tomcat需要的安装包制作镜像编写DockerFile构建DockerFile1docker build -t java7_tomcat7:v1 .
-
-java7_tomcat7：构建后镜像名字
-v1：构建后的镜像tag
-.：当前路径
-
-查看镜像构建成功以后可以通过1docker images
-查看构建成功后的镜像
-启动...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-12</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/docker/" class="color2">docker</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2017/12/12/新建一个docker镜像/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next >></a>
+  </nav>
 </section>
         
       </div>
@@ -795,10 +833,10 @@ v1：构建后的镜像tag
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -825,7 +863,7 @@ v1：构建后的镜像tag
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
 </div>
