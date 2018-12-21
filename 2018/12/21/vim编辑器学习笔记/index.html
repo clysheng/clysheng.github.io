@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>工作中一次触发器的使用 | Harvey&#39;s blog</title>
+  <title>vim学习笔记(一) | Harvey&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Harvey's Blog" />
   
-  <meta name="description" content="需求 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的">
-<meta name="keywords" content="触发器,工作">
+  <meta name="description" content="vim下两种模式 Normal启动vim后，默认在Normal模式下，点击i进入 Insert在该模式下可以输入任何内容，退出该模式按ESC，返回到Normal模式  Normal模式下常用指令 x -&amp;gt; 删除当前光标所在的一个字符 i -&amp;gt; 进入Insert模式 :wq -&amp;gt; 存盘+退出，:w存盘，:q退出 ，:w后可以跟文件名 dd -&amp;gt; 删除当前行，并把删除的行存到剪">
+<meta name="keywords" content="vim,工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作中一次触发器的使用">
-<meta property="og:url" content="http://mrhe.top/2018/01/06/工作中一次触发器的使用/index.html">
+<meta property="og:title" content="vim学习笔记(一)">
+<meta property="og:url" content="http://mrhe.top/2018/12/21/vim编辑器学习笔记/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="需求 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的">
+<meta property="og:description" content="vim下两种模式 Normal启动vim后，默认在Normal模式下，点击i进入 Insert在该模式下可以输入任何内容，退出该模式按ESC，返回到Normal模式  Normal模式下常用指令 x -&amp;gt; 删除当前光标所在的一个字符 i -&amp;gt; 进入Insert模式 :wq -&amp;gt; 存盘+退出，:w存盘，:q退出 ，:w后可以跟文件名 dd -&amp;gt; 删除当前行，并把删除的行存到剪">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T10:28:22.214Z">
+<meta property="og:updated_time" content="2018-12-21T08:49:59.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工作中一次触发器的使用">
-<meta name="twitter:description" content="需求 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的">
+<meta name="twitter:title" content="vim学习笔记(一)">
+<meta name="twitter:description" content="vim下两种模式 Normal启动vim后，默认在Normal模式下，点击i进入 Insert在该模式下可以输入任何内容，退出该模式按ESC，返回到Normal模式  Normal模式下常用指令 x -&amp;gt; 删除当前光标所在的一个字符 i -&amp;gt; 进入Insert模式 :wq -&amp;gt; 存盘+退出，:w存盘，:q退出 ，:w后可以跟文件名 dd -&amp;gt; 删除当前行，并把删除的行存到剪">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -93,14 +93,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-工作中一次触发器的使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-vim编辑器学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      工作中一次触发器的使用
+      vim学习笔记(一)
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -108,12 +108,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/工作/">工作</a>
+                      <a href="/categories/工具/">工具</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-01-06
+          <i class="fa fa-calendar"></i>  2018-12-21
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -129,19 +129,51 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p> 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的状态，</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p> 具体代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER triggerName</span><br><span class="line">BEFORE INSERT ON tableName</span><br><span class="line">FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  if (NEW.phone=&apos;xxx&apos;)</span><br><span class="line">    THEN</span><br><span class="line">  set NEW.deal_flag=1 ;</span><br><span class="line">    end if;</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
-<h4 id="在创建触发器时，需要给出4条信息："><a href="#在创建触发器时，需要给出4条信息：" class="headerlink" title="在创建触发器时，需要给出4条信息："></a>在创建触发器时，需要给出4条信息：</h4><ul>
-<li>唯一的触发器名；</li>
-<li>触发器关联的表</li>
-<li>触发器应该响应的动作（ DELETE、INSERT 或UPDATE）</li>
-<li>触发器何时执行（处理之前或之后）。</li>
+            <h2 id="vim下两种模式"><a href="#vim下两种模式" class="headerlink" title="vim下两种模式"></a>vim下两种模式</h2><ul>
+<li>Normal<br>启动vim后，默认在Normal模式下，点击<em>i</em>进入</li>
+<li>Insert<br>在该模式下可以输入任何内容，退出该模式按<em>ESC</em>，返回到Normal模式</li>
+</ul>
+<h2 id="Normal模式下常用指令"><a href="#Normal模式下常用指令" class="headerlink" title="Normal模式下常用指令"></a>Normal模式下常用指令</h2><ul>
+<li><em>x</em> -&gt; 删除当前光标所在的一个字符</li>
+<li><em>i</em> -&gt; 进入Insert模式</li>
+<li><em>:wq</em> -&gt; 存盘+退出，<em>:w</em>存盘，<em>:q</em>退出 ，:w后可以跟文件名</li>
+<li><em>dd</em> -&gt; 删除当前行，并把删除的行存到剪贴板里</li>
+<li>p -&gt; 粘贴</li>
+<li><em>yy</em> -&gt; 拷贝当前行</li>
+<li><em>hjkl</em> -&gt; 对应⬅️⤵️⤴️➡️</li>
+<li><em>u</em> -&gt; 撤回</li>
+</ul>
+<h2 id="Normal模式下进阶指令"><a href="#Normal模式下进阶指令" class="headerlink" title="Normal模式下进阶指令"></a>Normal模式下进阶指令</h2><h3 id="1-各种插入模式"><a href="#1-各种插入模式" class="headerlink" title="1.各种插入模式"></a>1.各种插入模式</h3><ul>
+<li><em>a</em> -&gt; 在光标后面插入</li>
+<li>o -&gt; 在当前行后插入一个新行</li>
+<li><em>O</em> -&gt; 在当前行前插入一个新行</li>
+<li><em>cw</em> -&gt; 替换从光标所在位置后到一个单词结尾的字符</li>
+</ul>
+<h3 id="2-简单移动光标"><a href="#2-简单移动光标" class="headerlink" title="2.简单移动光标"></a>2.简单移动光标</h3><ul>
+<li><em>0</em> -&gt; 数字零到行头</li>
+<li>^ -&gt; 到本行第一个不是blank字符的位置(blank字符就是空格，tab，换行，回车等)</li>
+<li>$ -&gt; 到本行行尾</li>
+<li>g_ -&gt; 到本行最后一个不是blank字符的位置</li>
+<li>/pattern -&gt; 搜索<em>pattern</em>的字符串，如果搜索出来多个匹配的，按<em>n</em>键到下一个</li>
+</ul>
+<h3 id="3-组合指令"><a href="#3-组合指令" class="headerlink" title="3.组合指令"></a>3.组合指令</h3><ul>
+<li>2dd -&gt; 删除两行</li>
+<li>3p -&gt; 粘贴三次</li>
+<li>N -&gt; 重复某个命令N次，先摁下N输入100ivim,再摁下esc，会写下100个vim</li>
+<li><em>.</em> -&gt; 重复上个命令</li>
+<li><em>3.</em>-&gt; 重复3次vim，不是300 </li>
+</ul>
+<h3 id="4-更强大的光标移动"><a href="#4-更强大的光标移动" class="headerlink" title="4.更强大的光标移动"></a>4.更强大的光标移动</h3><ul>
+<li><em>gg</em> -&gt; 到第一行</li>
+<li><em>G</em> -&gt; 到最后一行</li>
+<li>NG -&gt; 到第N行</li>
+<li>按单词移动 w -&gt; 到下一个单词开头 e -&gt; 到下一个单词结尾</li>
 </ul>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年01月12日 18:28</p>
-        <p>原始链接： <a class="post-url" href="/2018/01/06/工作中一次触发器的使用/" title="工作中一次触发器的使用">http://mrhe.top/2018/01/06/工作中一次触发器的使用/</a></p>
+        <p>最后更新： 2018年12月21日 16:49</p>
+        <p>原始链接： <a class="post-url" href="/2018/12/21/vim编辑器学习笔记/" title="vim学习笔记(一)">http://mrhe.top/2018/12/21/vim编辑器学习笔记/</a></p>
         <footer>
             <a href="http://mrhe.top">
                 <img src="/images/logo.png" alt="Harvey">
@@ -167,7 +199,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/06/工作中一次触发器的使用/&title=《工作中一次触发器的使用》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tNbRwgy1fndzxlc2w0j31kw1071kx.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/12/21/vim编辑器学习笔记/&title=《vim学习笔记(一)》 — Harvey's blog&pic=https://ws2.sinaimg.cn/large/006tKfTcgy1fnijf6je7vj30hs07sjrj.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -177,22 +209,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/06/工作中一次触发器的使用/&title=《工作中一次触发器的使用》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/12/21/vim编辑器学习笔记/&title=《vim学习笔记(一)》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/01/06/工作中一次触发器的使用/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/12/21/vim编辑器学习笔记/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工作中一次触发器的使用》 — Harvey's blog&url=http://mrhe.top/2018/01/06/工作中一次触发器的使用/&via=http://mrhe.top" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vim学习笔记(一)》 — Harvey's blog&url=http://mrhe.top/2018/12/21/vim编辑器学习笔记/&via=http://mrhe.top" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/01/06/工作中一次触发器的使用/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/12/21/vim编辑器学习笔记/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -202,7 +234,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/01/06/工作中一次触发器的使用/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/12/21/vim编辑器学习笔记/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -214,9 +246,9 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/触发器/" class="color4">触发器</a>
+    <a href="/tags/vim/" class="color4">vim</a>
       
-    <a href="/tags/工作/" class="color3">工作</a>
+    <a href="/tags/工具/" class="color3">工具</a>
       
   </li>
 
@@ -229,26 +261,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#需求"><span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实现"><span class="post-toc-text">实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在创建触发器时，需要给出4条信息："><span class="post-toc-text">在创建触发器时，需要给出4条信息：</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim下两种模式"><span class="post-toc-text">vim下两种模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Normal模式下常用指令"><span class="post-toc-text">Normal模式下常用指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Normal模式下进阶指令"><span class="post-toc-text">Normal模式下进阶指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-各种插入模式"><span class="post-toc-text">1.各种插入模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-简单移动光标"><span class="post-toc-text">2.简单移动光标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-组合指令"><span class="post-toc-text">3.组合指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-更强大的光标移动"><span class="post-toc-text">4.更强大的光标移动</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/01/09/java8 Optional.1/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Optional
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/01/06/java8默认方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">java8默认方法</span>
+    <a href="/2018/05/23/docker常用操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">制作一个基于集成java和tomcat的docker镜像</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

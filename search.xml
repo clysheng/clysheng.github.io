@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vim学习笔记(一)]]></title>
+    <url>%2F2018%2F12%2F21%2Fvim%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[vim下两种模式 Normal启动vim后，默认在Normal模式下，点击i进入 Insert在该模式下可以输入任何内容，退出该模式按ESC，返回到Normal模式 Normal模式下常用指令 x -&gt; 删除当前光标所在的一个字符 i -&gt; 进入Insert模式 :wq -&gt; 存盘+退出，:w存盘，:q退出 ，:w后可以跟文件名 dd -&gt; 删除当前行，并把删除的行存到剪贴板里 p -&gt; 粘贴 yy -&gt; 拷贝当前行 hjkl -&gt; 对应⬅️⤵️⤴️➡️ u -&gt; 撤回 Normal模式下进阶指令1.各种插入模式 a -&gt; 在光标后面插入 o -&gt; 在当前行后插入一个新行 O -&gt; 在当前行前插入一个新行 cw -&gt; 替换从光标所在位置后到一个单词结尾的字符 2.简单移动光标 0 -&gt; 数字零到行头 ^ -&gt; 到本行第一个不是blank字符的位置(blank字符就是空格，tab，换行，回车等) $ -&gt; 到本行行尾 g_ -&gt; 到本行最后一个不是blank字符的位置 /pattern -&gt; 搜索pattern的字符串，如果搜索出来多个匹配的，按n键到下一个 3.组合指令 2dd -&gt; 删除两行 3p -&gt; 粘贴三次 N -&gt; 重复某个命令N次，先摁下N输入100ivim,再摁下esc，会写下100个vim . -&gt; 重复上个命令 3.-&gt; 重复3次vim，不是300 4.更强大的光标移动 gg -&gt; 到第一行 G -&gt; 到最后一行 NG -&gt; 到第N行 按单词移动 w -&gt; 到下一个单词开头 e -&gt; 到下一个单词结尾]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[制作一个基于集成java和tomcat的docker镜像]]></title>
+    <url>%2F2018%2F05%2F23%2Fdocker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[1.将对容器的修改提交到镜像先启动一个镜像1docker run -t -i ubuntu:14.04 /bin/bash 当退出容器后，容器停止运行，但是容器还在，可以提交对容器做出的修改，并新建一个镜像12docker ps #查看容器iddocker commit 容器id 新的镜像名字:tag 2.宿主机和容器之间共享数据在运行docker run命令时，可以通过-v将宿主机的卷挂载到容器中若想将宿主机的/share目录下工作目录与容器共享，可以执行以下命令，执行命令前先进入到share目录下 12docker run -ti -v &quot;$PWD&quot;:/share unbuntu:14.04 /bin/bash 3.宿主机器与容器之间互相复制数据 容器复制到宿主 1docker cp 容器名字:文件路径 宿主机器路径 宿主复制到容器 1docker cp 宿主机器路径 容器名字:文件路径 如果两个容器之间复制，可以先把文件复制到宿主机器，再从宿主机器复制到另一个容器,重复上面两个步骤 4.删除容器删除指定容器1docker rm 容器id 删除所有容器1docker rm $(docker ps -aq)]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[EffectiveJava学习笔记]]></title>
     <url>%2F2018%2F04%2F17%2FEffective%20java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[一.创建和销毁对象1.考虑用静态方工厂方法代替构造器优势： 静态工厂方法有名称，更易于阅读 不必每次调用的时候都创建一个新对象 可以返回原返回类型的任何子类型的对象,更灵活 创建参数化类型实例的时候，他们使代码边的更加简洁 缺点： 类如果不含公有或者受保护的构造器，就不能被子类化 他们于其它静态方法实际上没有任何区别 2.服务提供者框架三个重要组件： 服务接口(Service Interface) 提供者注册API(Provider Registration API) 服务访问API(Service Access API) 可选，服务提供者接口(Servcie Provider Interface) 3.遇到多个构造器参数的时候要考虑用构造器 考虑用重叠构造器 1234567891011121314151617181920public class UserDemo1 &#123; private final String name ; private final String address ; private final int age ; private final String phone ; public UserDemo1(String name,String address)&#123; this(name,address,0) ; &#125; public UserDemo1(String name,String address,int age)&#123; this(name,address,0,&quot;&quot;) ; &#125; public UserDemo1(String name,String address,int age,String phone)&#123; this.name = name ; this.address = address ; this.age = age ; this.phone = phone ; &#125;&#125; 缺点就是当参数过多的时候，不容易阅读，很难理解参数的意思，甚至容易搞反参数。 JavaBeans的模式，通过set方法来设置每个必要参数 12345678910111213141516171819202122public class UserDemo2 &#123; private String name ; private String address ; private int age ; private String phone ; public String getName() &#123; return name; &#125; public String getAddress() &#123; return address; &#125; public int getAge() &#123; return age; &#125; public String getPhone() &#123; return phone; &#125;&#125; 优点是代码易读，缺点是阻止了把类做成不可边的可能，多线程情况不能保证对象的一致状态，需要付出额外的努力保证线程安全 Builder模式 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354public class User &#123; private final String name ; private final String address ; private final int age ; private final String phone ; public static class Builder&#123; private final String name ; private final String phone ; private String address=&quot;sz&quot; ; private int age=18 ; public Builder(String name,String phone)&#123; this.name = name ; this.phone = phone ; &#125; public Builder age(int val)&#123; age = val ; return this ; &#125; public Builder address(String val)&#123; address = val ; return this ; &#125; public User bulid()&#123; return new User(this) ; &#125; &#125; private User(Builder builder)&#123; name = builder.name ; phone = builder.phone ; address = builder.address ; age = builder.age ; &#125; @Override public String toString() &#123; return &quot;User&#123;&quot; + &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; + &quot;, address=&apos;&quot; + address + &apos;\&apos;&apos; + &quot;, age=&quot; + age + &quot;, phone=&apos;&quot; + phone + &apos;\&apos;&apos; + &apos;&#125;&apos;; &#125; public static void main(String[] args)&#123; User user = new User.Builder(&quot;harvey&quot;,&quot;13689568213&quot;).bulid() ; System.out.println(user); user = new User.Builder(&quot;harvey&quot;,&quot;13689568213&quot;).age(20).bulid() ; System.out.println(user); &#125;&#125; 既保留了重叠构造器的安全性，也保证了javabean的易读性 简而言之，如果类的构造器或者静态工厂中具有多个参数，设计这种类的时候，builder模式就是中不错的选择，特别是当大多数参数是可选择的时候，但是它使用起来较为麻烦，某些十分注重性能的情况下，可能就会有问题。 4.通过私有构造器强化不可实例化的能力当我们设计了一个工具类，实例化对它没有意义，但是再缺少显式构造器的情况下，编译器会自动提供一个默认的，无参缺省的构造器，我们可以为该类添加一个显式的私有的构造方法，防止被其他类实例化。]]></content>
+    <content type="text"><![CDATA[一.创建和销毁对象1.考虑用静态方工厂方法代替构造器优势： 静态工厂方法有名称，更易于阅读 不必每次调用的时候都创建一个新对象 可以返回原返回类型的任何子类型的对象,更灵活 创建参数化类型实例的时候，他们使代码边的更加简洁 缺点： 类如果不含公有或者受保护的构造器，就不能被子类化 他们于其它静态方法实际上没有任何区别 2.服务提供者框架三个重要组件： 服务接口(Service Interface) 提供者注册API(Provider Registration API) 服务访问API(Service Access API) 可选，服务提供者接口(Servcie Provider Interface) 3.遇到多个构造器参数的时候要考虑用构造器 考虑用重叠构造器 1234567891011121314151617181920public class UserDemo1 &#123; private final String name ; private final String address ; private final int age ; private final String phone ; public UserDemo1(String name,String address)&#123; this(name,address,0) ; &#125; public UserDemo1(String name,String address,int age)&#123; this(name,address,0,&quot;&quot;) ; &#125; public UserDemo1(String name,String address,int age,String phone)&#123; this.name = name ; this.address = address ; this.age = age ; this.phone = phone ; &#125;&#125; 缺点就是当参数过多的时候，不容易阅读，很难理解参数的意思，甚至容易搞反参数。 JavaBeans的模式，通过set方法来设置每个必要参数 12345678910111213141516171819202122public class UserDemo2 &#123; private String name ; private String address ; private int age ; private String phone ; public String getName() &#123; return name; &#125; public String getAddress() &#123; return address; &#125; public int getAge() &#123; return age; &#125; public String getPhone() &#123; return phone; &#125;&#125; 优点是代码易读，缺点是阻止了把类做成不可边的可能，多线程情况不能保证对象的一致状态，需要付出额外的努力保证线程安全 Builder模式 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354public class User &#123; private final String name ; private final String address ; private final int age ; private final String phone ; public static class Builder&#123; private final String name ; private final String phone ; private String address=&quot;sz&quot; ; private int age=18 ; public Builder(String name,String phone)&#123; this.name = name ; this.phone = phone ; &#125; public Builder age(int val)&#123; age = val ; return this ; &#125; public Builder address(String val)&#123; address = val ; return this ; &#125; public User bulid()&#123; return new User(this) ; &#125; &#125; private User(Builder builder)&#123; name = builder.name ; phone = builder.phone ; address = builder.address ; age = builder.age ; &#125; @Override public String toString() &#123; return &quot;User&#123;&quot; + &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; + &quot;, address=&apos;&quot; + address + &apos;\&apos;&apos; + &quot;, age=&quot; + age + &quot;, phone=&apos;&quot; + phone + &apos;\&apos;&apos; + &apos;&#125;&apos;; &#125; public static void main(String[] args)&#123; User user = new User.Builder(&quot;harvey&quot;,&quot;13689568213&quot;).bulid() ; System.out.println(user); user = new User.Builder(&quot;harvey&quot;,&quot;13689568213&quot;).age(20).bulid() ; System.out.println(user); &#125;&#125; 既保留了重叠构造器的安全性，也保证了javabean的易读性 简而言之，如果类的构造器或者静态工厂中具有多个参数，设计这种类的时候，builder模式就是中不错的选择，特别是当大多数参数是可选择的时候，但是它使用起来较为麻烦，某些十分注重性能的情况下，可能就会有问题。 4.通过私有构造器强化不可实例化的能力当我们设计了一个工具类，实例化对它没有意义，但是在缺少显式构造器的情况下，编译器会自动提供一个默认的，无参缺省的构造器，我们可以为该类添加一个显式的私有的构造方法，防止被其他类实例化。 5.消除过期的对象引用]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -21,6 +44,17 @@
       </categories>
       <tags>
         <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[摘抄]]></title>
+    <url>%2F2018%2F01%2F10%2F%E6%91%98%E6%8A%84%2F</url>
+    <content type="text"><![CDATA[关于反思我们在进行反思的过程中，要注意三点: 及时反思，还原事件细节，可用纸笔完成 思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。 关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。]]></content>
+      <categories>
+        <category>摘抄</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
       </tags>
   </entry>
   <entry>
@@ -43,17 +77,6 @@
       </categories>
       <tags>
         <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[摘抄]]></title>
-    <url>%2F2018%2F01%2F10%2F%E6%91%98%E6%8A%84%2F</url>
-    <content type="text"><![CDATA[关于反思我们在进行反思的过程中，要注意三点: 及时反思，还原事件细节，可用纸笔完成 思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。 关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。]]></content>
-      <categories>
-        <category>摘抄</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
       </tags>
   </entry>
   <entry>

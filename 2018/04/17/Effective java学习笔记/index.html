@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Harvey&#39;s blog">
 <meta property="og:description" content="一.创建和销毁对象1.考虑用静态方工厂方法代替构造器优势：  静态工厂方法有名称，更易于阅读 不必每次调用的时候都创建一个新对象 可以返回原返回类型的任何子类型的对象,更灵活 创建参数化类型实例的时候，他们使代码边的更加简洁  缺点：  类如果不含公有或者受保护的构造器，就不能被子类化 他们于其它静态方法实际上没有任何区别  2.服务提供者框架三个重要组件：  服务接口(Service Inter">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T08:56:38.577Z">
+<meta property="og:updated_time" content="2018-04-20T06:41:43.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EffectiveJava学习笔记">
 <meta name="twitter:description" content="一.创建和销毁对象1.考虑用静态方工厂方法代替构造器优势：  静态工厂方法有名称，更易于阅读 不必每次调用的时候都创建一个新对象 可以返回原返回类型的任何子类型的对象,更灵活 创建参数化类型实例的时候，他们使代码边的更加简洁  缺点：  类如果不含公有或者受保护的构造器，就不能被子类化 他们于其它静态方法实际上没有任何区别  2.服务提供者框架三个重要组件：  服务接口(Service Inter">
@@ -163,11 +163,11 @@
 <p>简而言之，如果类的构造器或者静态工厂中具有多个参数，设计这种类的时候，builder模式就是中不错的选择，特别是当大多数参数是可选择的时候，但是它使用起来较为麻烦，某些十分注重性能的情况下，可能就会有问题。</p>
 </li>
 </ul>
-<h3 id="4-通过私有构造器强化不可实例化的能力"><a href="#4-通过私有构造器强化不可实例化的能力" class="headerlink" title="4.通过私有构造器强化不可实例化的能力"></a>4.通过私有构造器强化不可实例化的能力</h3><p>当我们设计了一个工具类，实例化对它没有意义，但是再缺少显式构造器的情况下，编译器会自动提供一个默认的，无参缺省的构造器，我们可以为该类添加一个显式的私有的构造方法，防止被其他类实例化。</p>
-
+<h3 id="4-通过私有构造器强化不可实例化的能力"><a href="#4-通过私有构造器强化不可实例化的能力" class="headerlink" title="4.通过私有构造器强化不可实例化的能力"></a>4.通过私有构造器强化不可实例化的能力</h3><p>当我们设计了一个工具类，实例化对它没有意义，但是在缺少显式构造器的情况下，编译器会自动提供一个默认的，无参缺省的构造器，我们可以为该类添加一个显式的私有的构造方法，防止被其他类实例化。</p>
+<h3 id="5-消除过期的对象引用"><a href="#5-消除过期的对象引用" class="headerlink" title="5.消除过期的对象引用"></a>5.消除过期的对象引用</h3>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年04月18日 16:56</p>
+        <p>最后更新： 2018年04月20日 14:41</p>
         <p>原始链接： <a class="post-url" href="/2018/04/17/Effective java学习笔记/" title="EffectiveJava学习笔记">http://mrhe.top/2018/04/17/Effective java学习笔记/</a></p>
         <footer>
             <a href="http://mrhe.top">
@@ -256,12 +256,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-创建和销毁对象"><span class="post-toc-text">一.创建和销毁对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-考虑用静态方工厂方法代替构造器"><span class="post-toc-text">1.考虑用静态方工厂方法代替构造器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-服务提供者框架"><span class="post-toc-text">2.服务提供者框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-遇到多个构造器参数的时候要考虑用构造器"><span class="post-toc-text">3.遇到多个构造器参数的时候要考虑用构造器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-通过私有构造器强化不可实例化的能力"><span class="post-toc-text">4.通过私有构造器强化不可实例化的能力</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-创建和销毁对象"><span class="post-toc-text">一.创建和销毁对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-考虑用静态方工厂方法代替构造器"><span class="post-toc-text">1.考虑用静态方工厂方法代替构造器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-服务提供者框架"><span class="post-toc-text">2.服务提供者框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-遇到多个构造器参数的时候要考虑用构造器"><span class="post-toc-text">3.遇到多个构造器参数的时候要考虑用构造器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-通过私有构造器强化不可实例化的能力"><span class="post-toc-text">4.通过私有构造器强化不可实例化的能力</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-消除过期的对象引用"><span class="post-toc-text">5.消除过期的对象引用</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/2018/05/23/docker常用操作/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          制作一个基于集成java和tomcat的docker镜像
+        
+      </span>
+    </a>
   
   
     <a href="/2018/01/16/精力管理/" id="article-nav-older" class="article-nav-link-wrap">
@@ -327,10 +337,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/工具/">工具</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/计划/">计划</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -357,7 +367,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 10px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
 </div>
