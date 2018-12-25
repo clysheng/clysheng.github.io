@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Hexo | Harvey&#39;s blog</title>
+  <title>记mqtt碰到的几个问题 | Harvey&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Harvey's Blog" />
   
-  <meta name="description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Harvey&#39;s blog">
-<meta property="og:url" content="http://mrhe.top/tags/Hexo/index.html">
+  <meta name="description" content="碰到的两个问题mqtt断线的问题一段时间使用发现mqtt会断线，可以在callbakurl中做从重连 ###clientid重复 在一台服务器上启动了两个mqtt应用，因为clientId设置的是固定的值，所以两个应用的clientId会互相挤掉线，解决办法就是就clientId设置不同的值。 另外一种情况是断线重连的时候每次都是new了一个新的mqttclient对象，导致与之前的mqtt对象的">
+<meta name="keywords" content="工作,mqtt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记mqtt碰到的几个问题">
+<meta property="og:url" content="http://mrhe.top/2018/12/25/记mqtt的几个坑/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+<meta property="og:description" content="碰到的两个问题mqtt断线的问题一段时间使用发现mqtt会断线，可以在callbakurl中做从重连 ###clientid重复 在一台服务器上启动了两个mqtt应用，因为clientId设置的是固定的值，所以两个应用的clientId会互相挤掉线，解决办法就是就clientId设置不同的值。 另外一种情况是断线重连的时候每次都是new了一个新的mqttclient对象，导致与之前的mqtt对象的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-25T07:00:26.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Harvey&#39;s blog">
-<meta name="twitter:description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+<meta name="twitter:title" content="记mqtt碰到的几个问题">
+<meta name="twitter:description" content="碰到的两个问题mqtt断线的问题一段时间使用发现mqtt会断线，可以在callbakurl中做从重连 ###clientid重复 在一台服务器上启动了两个mqtt应用，因为clientId设置的是固定的值，所以两个应用的clientId会互相挤掉线，解决办法就是就clientId设置不同的值。 另外一种情况是断线重连的时候每次都是new了一个新的mqttclient对象，导致与之前的mqtt对象的">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -91,95 +93,156 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-记mqtt的几个坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/01/Next主题美化/" class="archive-article-date">
-  <time datetime="2018-01-01T12:08:00.000Z" itemprop="datePublished">01-01</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/01/Next主题美化/"  >next主题美化</a>
+    <h1 class="post-title" itemprop="name">
+      记mqtt碰到的几个问题
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/工作/">工作</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-12-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <h2 id="碰到的两个问题"><a href="#碰到的两个问题" class="headerlink" title="碰到的两个问题"></a>碰到的两个问题</h2><h3 id="mqtt断线的问题"><a href="#mqtt断线的问题" class="headerlink" title="mqtt断线的问题"></a>mqtt断线的问题</h3><p>一段时间使用发现mqtt会断线，可以在callbakurl中做从重连</p>
+<p>###clientid重复</p>
+<p>在一台服务器上启动了两个mqtt应用，因为clientId设置的是固定的值，所以两个应用的clientId会互相挤掉线，解决办法就是就clientId设置不同的值。</p>
+<p>另外一种情况是断线重连的时候每次都是new了一个新的mqttclient对象，导致与之前的mqtt对象的clientId重复了，解决办法就是就是将mqttclient对象设置为单例模式。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月25日 15:00</p>
+        <p>原始链接： <a class="post-url" href="/2018/12/25/记mqtt的几个坑/" title="记mqtt碰到的几个问题">http://mrhe.top/2018/12/25/记mqtt的几个坑/</a></p>
+        <footer>
+            <a href="http://mrhe.top">
+                <img src="/images/logo.png" alt="Harvey">
+                Harvey
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/12/25/记mqtt的几个坑/&title=《记mqtt碰到的几个问题》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tNbRwgy1fndzxlc2w0j31kw1071kx.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/12/25/记mqtt的几个坑/&title=《记mqtt碰到的几个问题》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://mrhe.top/2018/12/25/记mqtt的几个坑/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记mqtt碰到的几个问题》 — Harvey's blog&url=http://mrhe.top/2018/12/25/记mqtt的几个坑/&via=http://mrhe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://mrhe.top/2018/12/25/记mqtt的几个坑/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://mrhe.top/2018/12/25/记mqtt的几个坑/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Hexo/" class="color5">Hexo</a>
+    <a href="/tags/工作/" class="color3">工作</a>
+      
+    <a href="/tags/mqtt/" class="color5">mqtt</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#碰到的两个问题"><span class="post-toc-text">碰到的两个问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mqtt断线的问题"><span class="post-toc-text">mqtt断线的问题</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/21/springboot的jar文件包在linux下启动方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">springboot的jar包在linux下启动方式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/31/Hexo博客搭建/" class="archive-article-date">
-  <time datetime="2017-12-31T07:12:33.000Z" itemprop="datePublished">12-31</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/31/Hexo博客搭建/"  >一. Hexo+github博客搭建</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Hexo/" class="color5">Hexo</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
 </section>
         
       </div>
