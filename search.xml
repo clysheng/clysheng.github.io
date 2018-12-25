@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springboot的jar包在linux下启动方式]]></title>
+    <url>%2F2018%2F12%2F25%2Fspringboot%E7%9A%84jar%E6%96%87%E4%BB%B6%E5%8C%85%E5%9C%A8linux%E4%B8%8B%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[方式一1java -jar XXX.jar 特点：当前ssh窗口被锁定，可按CTRL + C打断程序运行，或直接关闭窗口，程序退出 方式二1java -jar XXX.jar &amp; &amp;代表在后台运行。 特定：当前ssh窗口不被锁定，但是当窗口关闭时，程序中止运行。 方式三1nohup java -jar XXX.jar &amp; nohup 意思是不挂断运行命令,当账户退出或终端关闭时,程序仍然运行 当用 nohup 命令执行作业时，缺省情况下该作业的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。 方式四1nohup java -jar XXX.jar &gt;temp.txt &amp; &gt;temp.txt输出内容到指定文件中而不是答应道屏幕上]]></content>
+      <categories>
+        <category>springboot</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[记mqtt碰到的几个问题]]></title>
     <url>%2F2018%2F12%2F25%2F%E8%AE%B0mqtt%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91%2F</url>
     <content type="text"><![CDATA[碰到的两个问题mqtt断线的问题一段时间使用发现mqtt会断线，可以在callbakurl中做从重连 ###clientid重复 在一台服务器上启动了两个mqtt应用，因为clientId设置的是固定的值，所以两个应用的clientId会互相挤掉线，解决办法就是就clientId设置不同的值。 另外一种情况是断线重连的时候每次都是new了一个新的mqttclient对象，导致与之前的mqtt对象的clientId重复了，解决办法就是就是将mqttclient对象设置为单例模式。]]></content>
@@ -10,18 +21,6 @@
       <tags>
         <tag>工作</tag>
         <tag>mqtt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[springboot的jar包在linux下启动方式]]></title>
-    <url>%2F2018%2F12%2F21%2Fspringboot%E7%9A%84jar%E6%96%87%E4%BB%B6%E5%8C%85%E5%9C%A8linux%E4%B8%8B%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[方式一1java -jar XXX.jar 特点：当前ssh窗口被锁定，可按CTRL + C打断程序运行，或直接关闭窗口，程序退出 方式二1java -jar XXX.jar &amp; &amp;代表在后台运行。 特定：当前ssh窗口不被锁定，但是当窗口关闭时，程序中止运行。 方式三1nohup java -jar XXX.jar &amp; nohup 意思是不挂断运行命令,当账户退出或终端关闭时,程序仍然运行 当用 nohup 命令执行作业时，缺省情况下该作业的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。 方式四1nohup java -jar XXX.jar &gt;temp.txt &amp; &gt;temp.txt输出内容到指定文件中而不是答应道屏幕上]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>vim</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
