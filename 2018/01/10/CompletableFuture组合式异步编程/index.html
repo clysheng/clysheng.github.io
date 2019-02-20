@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何阅读一本书 | Harvey&#39;s blog</title>
+  <title>CompletableFuture组合式异步编程 | Harvey&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Harvey's Blog" />
   
   <meta name="description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
-<meta name="keywords" content="读书笔记">
+<meta name="keywords" content="java8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何阅读一本书">
+<meta property="og:title" content="CompletableFuture组合式异步编程">
 <meta property="og:url" content="http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
 <meta property="og:description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T08:50:58.570Z">
+<meta property="og:updated_time" content="2019-02-20T09:16:59.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何阅读一本书">
+<meta name="twitter:title" content="CompletableFuture组合式异步编程">
 <meta name="twitter:description" content="组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式1234567891011121314151617181920212">
   
   
@@ -100,7 +100,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      如何阅读一本书
+      CompletableFuture组合式异步编程
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -108,7 +108,7 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/读书笔记/">读书笔记</a>
+                      <a href="/categories/java/">java</a>
                   
               </li>
           
@@ -177,8 +177,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年12月21日 16:50</p>
-        <p>原始链接： <a class="post-url" href="/2018/01/10/CompletableFuture组合式异步编程/" title="如何阅读一本书">http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/</a></p>
+        <p>最后更新： 2019年02月20日 17:16</p>
+        <p>原始链接： <a class="post-url" href="/2018/01/10/CompletableFuture组合式异步编程/" title="CompletableFuture组合式异步编程">http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/</a></p>
         <footer>
             <a href="http://mrhe.top">
                 <img src="/images/logo.png" alt="Harvey">
@@ -204,7 +204,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《如何阅读一本书》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《CompletableFuture组合式异步编程》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -214,7 +214,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《如何阅读一本书》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&title=《CompletableFuture组合式异步编程》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -224,7 +224,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何阅读一本书》 — Harvey's blog&url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&via=http://mrhe.top" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CompletableFuture组合式异步编程》 — Harvey's blog&url=http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/&via=http://mrhe.top" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -251,7 +251,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/读书笔记/" class="color5">读书笔记</a>
+    <a href="/tags/java8/" class="color1">java8</a>
       
   </li>
 
@@ -271,12 +271,12 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/01/10/摘抄/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/16/精力管理/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          摘抄
+          精力管理
         
       </span>
     </a>
@@ -345,10 +345,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mycat/">Mycat</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/springboot/">springboot</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/工具/">工具</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mycat/">Mycat</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/springboot/">springboot</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/工具/">工具</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -375,7 +375,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 15px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 20px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
 </div>

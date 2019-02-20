@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F02%2F20%2FMycat%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB(%E4%BA%8C)%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Mycat概述]]></title>
     <url>%2F2019%2F02%2F20%2FMycat%E6%A6%82%E8%BF%B0(%E4%B8%80)%2F</url>
     <content type="text"><![CDATA[Mycat是什么Mycat是一个开源的分布式数据库系统，是一个实现了MySQL协议的Server,前端用户可以把它当做一个数据库代理，可以通过MySQL工具和命令行访问，也可以用jdbc协议与大多数主流数据库服务器通信。Mycat没用存储引擎，所以并不是完全意义的分布式数据库系统，一般称之为数据库中间件，介于数据库和应用之间，进行中间服务,如下图所示 Mycat可以做什么Mycat核心功能就是分表分库，将一个大表水平切分N个小表，存储在后端MySQL服务器里活其它数据库里。Mycat发展到现在已经不是一个单纯的MySQL代理了，它的后端可以支持MySQL，SQLServer，Oracle，DB2，PostgreSQL等主流数据库，也支持MongoDB这种NoSQL方式的存储，无论哪种方式存储，在Mycat里，都是一个传统的数据库表，支持标准的SQL语句进行数据操作。Mycat 是一个强大的数据库中间件，不仅仅可以用作读写分离、以及分表分库、容灾备份，而且可以用于多 租户应用开发、云平台基础设施、让你的架构具备很强的适应性和灵活性，借助于即将发布的Mycat智能优化模块，系统的数据访问瓶颈和热点一目了然，根据这些统计分析数据，你可以自动或手工调整后端存储，将不同的表映射到不同存储引擎上，而整个应用的代码一行也不用改变。 Mycat原理Mycat会拦截用户发送过来的SQL语句，然后对语句进行一些特定的分析，如分片分析、路由分析、读写分离分析、缓存分析等，然后将SQL语句发送给后端真实的数据库，并将返回结果适当处理，最终再返回给用户。 上述图片里，Orders 表被分为三个分片 datanode(简称 dn)，这三个分片是分布在两台 MySQL Server 上 (DataHost)，即 datanode=database@datahost 方式，因此你可以用一台到 N 台服务器来分片，分片规则为 (sharding rule)典型的字符串枚举分片规则，一个规则的定义是分片字段(sharding column)+分片函数(rule function)，这里的分片字段为prov而分片函数为字符串枚举方式。当Mycat收到一个SQL时，会先解析这个SQL，查找涉及到的表，然后看此表的定义，如果有分片规则， 则获取到 SQL 里分片字段的值，并匹配分片函数，得到该SQL对应的分片列表，然后将SQL发往这些分片去执行，最后收集和处理所有分片返回的结果数据，并输出到客户端。以 select from Orders where prov=?语句为 例，查到 prov=wuhan，按照分片函数，wuhan返回dn1，于是SQL就发给了MySQL1，去取DB1上的查询结果，并返回给用户。如果上述 SQL 改为 select from Orders where prov in (‘wuhan’,‘beijing’)，那么，SQL 就会发给MySQL1与MySQL2去执行，然后结果集合并后输出给用户。 Mycat应用场景Mycat发展到现在，适用的场景已经很丰富，而且不断有新用户给出新的创新性的方案，以下是几个典型的应用场景: 单纯的读写分离，此时配置最为简单，支持读写分离，主从切换; 分表分库，对于超过1000 万的表进行分片，最大支持 1000亿的单表分片; 多租户应用，每个应用一个库，但应用程序只连接 Mycat，从而不改造程序本身，实现多租户化; 报表系统，借助于 Mycat 的分表能力，处理大规模报表的统计; 替代Hbase，分析大数据; 作为海量数据实时查询的一种简单有效方案，比如100亿条频繁查询的记录需要在3秒内查询出来结果，除了基于主键的查询，还可能存在范围查询或其他属性查询，此时 Mycat 可能是最简单有效的选择。]]></content>
@@ -81,25 +86,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[摘抄]]></title>
-    <url>%2F2018%2F01%2F10%2F%E6%91%98%E6%8A%84%2F</url>
-    <content type="text"><![CDATA[关于反思我们在进行反思的过程中，要注意三点: 及时反思，还原事件细节，可用纸笔完成 思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。 关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。]]></content>
-      <categories>
-        <category>摘抄</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[如何阅读一本书]]></title>
+    <title><![CDATA[CompletableFuture组合式异步编程]]></title>
     <url>%2F2018%2F01%2F10%2FCompletableFuture%E7%BB%84%E5%90%88%E5%BC%8F%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[组合式编程的优势 不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。 使用CompletableFuture构建异步应用通过一个例子来描述： 背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。 通过代码描述同步和异步的实现区别同步的实现方式123456789101112131415161718192021222324252627282930public class Shop &#123; private Random random = new Random() ; public double getPrice(String product)&#123; return calculatePrice(product) ; &#125; /** * 模拟查询延迟 */ public static void delay() &#123; try &#123; Thread.sleep(1000L); &#125; catch (InterruptedException e) &#123; throw new RuntimeException(e); &#125; &#125; /** * 随机返回一个价格 * @param product * @return */ private double calculatePrice(String product) &#123; delay(); return random.nextDouble() * product.charAt(0) + product.charAt(1); &#125; &#125; 每次查询需要1s，如果同时查询多个商店价格，每一个都要等前一个查询完毕才能执行，耗时过长，而且浪费cpu性能。 异步的实现123456789101112131415161718192021222324252627282930313233343536public class ShopSync &#123; private Random random = new Random() ; /** * 创建异步计算对象 * @param product * @return */ public Future&lt;Double&gt; getPriceAsync(String product) &#123; CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;(); new Thread( () -&gt; &#123; double price = calculatePrice(product); futurePrice.complete(price); &#125;).start(); return futurePrice; &#125; /** * 模拟查询延迟 */ public static void delay() &#123; try &#123; Thread.sleep(1000L); &#125; catch (InterruptedException e) &#123; throw new RuntimeException(e); &#125; &#125; /** * 随机返回一个价格 * @param product * @return */ private double calculatePrice(String product) &#123; delay(); return random.nextDouble() * product.charAt(0) + product.charAt(1); &#125;&#125; 创建了一个代表异步计算的CompletableFuture实例，计算完成时包含计算结果，它创建了另外一个线程去执行计算，而实时返回一个Future实例，但最终结果计算出来，可以通过get方法得到最终结果。 这样做的优势是，当第一家商店的价格未计算出来之前，可以继续查询其它商店价格，应用不会被阻塞。 异常处理如果价格计算过程中产生了错误，会是一个很糟糕的结果，因为提示错误的异常会被限制在试图计算商品价格的当前范围内，最终会杀死该线程，导致等待get方法返回结果的的客户端永久地被阻塞。如何避免呢，实现如下： 1234567891011121314public Future&lt;Double&gt; getPriceAsync(String product)&#123; CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;(); new Thread( () -&gt; &#123; try&#123; double price = calculatePrice(product); futurePrice.complete(price); &#125;catch (Exception ex)&#123; futurePrice.completeExceptionally(ex) ; &#125; &#125; ).start(); ; return futurePrice ;&#125; 通过这种方式线程内部会抛出一个Exception异常，客户端不需要一直阻塞下去了，而是得到抛出异常消息。 使用工厂方法supplyAsync创建CompletableFuture123public Future&lt;Double&gt; getPriceAsync(String product) &#123; return CompletableFuture.supplyAsync(() -&gt; calculatePrice(product)); &#125; 提供了和上面异常处理例子同样的错误管理机制 新背景以异步的方式查询多个商店，避免被单一的请求所阻塞，由此提升价格查询器的性能和吞吐量。 代码重构首先提供一个商家列表 1List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;)) ; 查询所有商品价格，返回一个List列表 采用顺序查询的方式,以stream流的方式实现 123456789public static List&lt;String&gt; getPrices(String product)&#123; List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;), new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;) ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;) ) ; return shops.stream().map( shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product)) ).collect(toList()) ; &#125; 验证该方式的执行性能 1234long start = System.nanoTime(); System.out.println(getPrices(&quot;myPhone27S&quot;)); long duration = (System.nanoTime() - start) / 1_000_000; System.out.println(&quot;Done in &quot; + duration + &quot; msecs&quot;); 12[bjshop price is 132.83, szshop price is 217.36, gzshop price is 189.29, cqshop price is 202.46, hzshop price is 124.39, njshop price is 170.00, wqshop price is 207.80, syshop price is 127.27, zzshop price is 140.72, whshop price is 145.39, jlshop price is 148.55]Done in 11161 msecs 采用并行流的方式任然进行该操作 123456789public static List&lt;String&gt; getPrices(String product)&#123; List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;), new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;) ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;) ) ; return shops.parallelStream().map( shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product)) ).collect(toList()) ; &#125; 12[bjshop price is 172.67, szshop price is 130.66, gzshop price is 128.48, cqshop price is 187.36, hzshop price is 151.71, njshop price is 227.09, wqshop price is 151.64, syshop price is 201.61, zzshop price is 204.35, whshop price is 141.16, jlshop price is 173.75]Done in 2127 msecs 采用CompletableFuture的方式任然执行该操作 123456789101112public static List&lt;String&gt; getPrices(String product)&#123; List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;), new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;) ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;) ) ; List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map( shop -&gt; CompletableFuture.supplyAsync( ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product) ) ).collect(toList()) ; return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ; &#125; 12[bjshop price is227.95307135502128, szshop price is209.0834114771096, gzshop price is180.0509393450812, cqshop price is148.94408809816616, hzshop price is185.99930958873858, njshop price is209.2247143369758, wqshop price is219.53671202996978, syshop price is229.10979442419102, zzshop price is150.8647592512694, whshop price is128.58930830999253, jlshop price is183.3010472086476]Done in 2097 msecs 这个地方采用两个stream,主要是考虑操作之前的延迟特性，单一的流水线，发向不通商家的请求只能以同步和顺序执行的方式才会成功 小结通过上述三种方式，我们发现，顺训流最慢，但是并行流和CompletableFuture的方式并没有相差很多，主要原因是他们内部是同样通用的线程池，默认使用固定数目的线程，具体线程数可以采用 1Runtime. getRuntime().availableProcessors() 查看，CompletableFuture允许对执行器Executor进行配置，尤其是线程池大小，让它以更适合应用需求的方式进行配置， 继续重构这次我们使用定制的执行器,继续执行价格查询器的例子 1234567891011121314151617181920public static List&lt;String&gt; getPrices(String product)&#123; List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;), new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;) ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;) ) ; Executor executor = Executors.newFixedThreadPool(Math.min(shops.size(), 100), new ThreadFactory() &#123; public Thread newThread(Runnable r) &#123; Thread t = new Thread(r); t.setDaemon(true); return t; &#125; &#125;); List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map( shop -&gt; CompletableFuture.supplyAsync( ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product),executor ) ).collect(toList()) ; return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ; &#125; 12[bjshop price is195.2661437963214, szshop price is227.33733741114568, gzshop price is182.76554778672724, cqshop price is217.15629799864445, hzshop price is211.64835186412643, njshop price is203.95503485334427, wqshop price is209.7508691664398, syshop price is165.41938531709016, zzshop price is225.43285716654617, whshop price is144.96966191158535, jlshop price is206.97255470003094]Done in 1084 msecs 这次我们发现速度提升了，需要注意的是我们创建了一个由守护线程构成的线程池，程序图退出时它会被回收 如何确定执行器线程数目 《Java并发编程实战》一书中，Brian Goetz和合著者们为线程池大小的优化提供了不少中肯的建议。这非常重要，如果线程池中线程的数量过多，最终它们会竞争稀缺的处理器和内存资源，浪费大量的时间在上下文切换上。反之，如果线程的数目过少，正如你的应用所面临的情况，处理器的一些核可能就无法充分利用。Brian Goetz建议，线程池大小与处理器的利用率之比可以使用下面的公式进行估算: Nthreads = NCPU UCPU (1 + W/C)其中:❑NCPU是处理器的核的数目，可以通过Runtime.getRuntime().availableProce-ssors()得到❑UCPU是期望的CPU利用率(该值应该介于0和1之间)❑W/C是等待时间与计算时间的比率 使用流还是CompletableFuture 如果进行的是计算密集型操作，并且没用I/O，那么推荐使用Stream接口 如果并行的工作单元还涉及等待I/O操作那么使用CompletableFuture接口灵活性]]></content>
       <categories>
-        <category>读书笔记</category>
+        <category>java</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
+        <tag>java8</tag>
       </tags>
   </entry>
   <entry>
@@ -111,6 +105,17 @@
       </categories>
       <tags>
         <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[摘抄]]></title>
+    <url>%2F2018%2F01%2F10%2F%E6%91%98%E6%8A%84%2F</url>
+    <content type="text"><![CDATA[关于反思我们在进行反思的过程中，要注意三点: 及时反思，还原事件细节，可用纸笔完成 思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。 关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。]]></content>
+      <categories>
+        <category>摘抄</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
       </tags>
   </entry>
   <entry>
