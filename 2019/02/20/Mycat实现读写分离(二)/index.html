@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Harvey&#39;s blog">
 <meta property="og:description" content="一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) 二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-21T06:37:46.207Z">
+<meta property="og:updated_time" content="2019-02-21T06:55:58.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat实现读写分离">
 <meta name="twitter:description" content="一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) 二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;quot;">
@@ -134,26 +134,26 @@
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>说明</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>user</td>
-<td>用户配置节点</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">用户配置节点</td>
 </tr>
 <tr>
-<td>name</td>
-<td>连接Mycat的用户名</td>
+<td style="text-align:center">name</td>
+<td style="text-align:center">连接Mycat的用户名</td>
 </tr>
 <tr>
-<td>password</td>
-<td>连接Mycat的密码</td>
+<td style="text-align:center">password</td>
+<td style="text-align:center">连接Mycat的密码</td>
 </tr>
 <tr>
-<td>schemas</td>
-<td>数据库名，会与schema.xml中的配置关联，多个用逗号隔开，例如需要这个用户管理两个数据库iwunu1,iwunu2</td>
+<td style="text-align:center">schemas</td>
+<td style="text-align:center">数据库名，会与schema.xml中的配置关联，多个用逗号隔开，例如需要这个用户管理两个数据库iwunu1,iwunu2</td>
 </tr>
 </tbody>
 </table>
@@ -161,35 +161,139 @@
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>说明</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>schema</td>
-<td>数据库设置，此数据库为逻辑数据库，name与server.xml中schema对应</td>
+<td style="text-align:center">schema</td>
+<td style="text-align:center">数据库设置，此数据库为逻辑数据库，name与server.xml中schema对应</td>
 </tr>
 <tr>
-<td>dataNode</td>
-<td>分片信息，也就是分库相关配置</td>
+<td style="text-align:center">dataNode</td>
+<td style="text-align:center">分片信息，也就是分库相关配置</td>
 </tr>
 <tr>
-<td>dataHost</td>
-<td>物理数据库，真正存储数据的数据库</td>
+<td style="text-align:center">dataHost</td>
+<td style="text-align:center">物理数据库，真正存储数据的数据库</td>
 </tr>
 </tbody>
 </table>
 <p>每个节点的属性逐一说明：</p>
-<p><strong><em>schema:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 逻辑数据库名，与server.xml中的schema对应 |<br>| checkSQLschema | 数据库前缀相关设置，建议看文档，这里暂时设为false |<br>| sqlMaxLimit | select 时默认的limit，避免查询全表 | </p>
-<p><strong><em>table:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 表名，物理数据库中表名 |<br>| dataNode | 表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name |<br>| primaryKey | 主键字段名，自动生成主键时需要设置 |<br>| autoIncrement | 是否自增 |<br>| rule | 分片规则名 | </p>
-<p><strong><em>dataNode:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 节点名，与table中dataNode对应 |<br>| dataNode | 物理数据库名，与datahost中name对应 |<br>| database | 物理数据库中数据库名 | </p>
-<p><strong><em>dataHost:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 物理数据库名，与dataNode中dataHost对应 |<br>| balance | 均衡负载的方式 |<br>| writeType | 写入方式 |<br>| dbType | 数据库类型 |<br>| heartbeat | 心跳检测语句，注意语句结尾的分号要加 | </p>
+<p><strong><em>schema:</em></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">逻辑数据库名，与server.xml中的schema对应</td>
+</tr>
+<tr>
+<td style="text-align:center">checkSQLschema</td>
+<td style="text-align:center">数据库前缀相关设置，建议看文档，这里暂时设为false</td>
+</tr>
+<tr>
+<td style="text-align:center">sqlMaxLimit</td>
+<td style="text-align:center">select 时默认的limit，避免查询全表</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>table:</em></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">表名，物理数据库中表名</td>
+</tr>
+<tr>
+<td style="text-align:center">dataNode</td>
+<td style="text-align:center">表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name</td>
+</tr>
+<tr>
+<td style="text-align:center">primaryKey</td>
+<td style="text-align:center">主键字段名，自动生成主键时需要设置</td>
+</tr>
+<tr>
+<td style="text-align:center">autoIncrement</td>
+<td style="text-align:center">是否自增</td>
+</tr>
+<tr>
+<td style="text-align:center">rule</td>
+<td style="text-align:center">分片规则名</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>dataNode:</em></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">节点名，与table中dataNode对应</td>
+</tr>
+<tr>
+<td style="text-align:center">dataNode</td>
+<td style="text-align:center">物理数据库名，与datahost中name对应</td>
+</tr>
+<tr>
+<td style="text-align:center">database</td>
+<td style="text-align:center">物理数据库中数据库名</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>dataHost:</em></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">物理数据库名，与dataNode中dataHost对应</td>
+</tr>
+<tr>
+<td style="text-align:center">balance</td>
+<td style="text-align:center">均衡负载的方式</td>
+</tr>
+<tr>
+<td style="text-align:center">writeType</td>
+<td style="text-align:center">写入方式</td>
+</tr>
+<tr>
+<td style="text-align:center">dbType</td>
+<td style="text-align:center">数据库类型</td>
+</tr>
+<tr>
+<td style="text-align:center">heartbeat</td>
+<td style="text-align:center">心跳检测语句，注意语句结尾的分号要加</td>
+</tr>
+</tbody>
+</table>
 <h2 id="四-配置Mysql"><a href="#四-配置Mysql" class="headerlink" title="四.配置Mysql"></a>四.配置Mysql</h2><p>需要注意的是Mysql主从分离只是在读的时候做了处理，写入数据的时候，只会写入到writehost，Mycat本身没有主从复制功能，需要单独实现mysql的主从复制功能</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年02月21日 14:37</p>
+        <p>最后更新： 2019年02月21日 14:55</p>
         <p>原始链接： <a class="post-url" href="/2019/02/20/Mycat实现读写分离(二)/" title="Mycat实现读写分离">http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/</a></p>
         <footer>
             <a href="http://mrhe.top">
@@ -283,19 +387,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/02/20/Mycat概述(一)/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Mycat概述
-        
-      </span>
-    </a>
   
-  
-    <a href="/2018/12/25/springboot的jar文件包在linux下启动方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">springboot的jar包在linux下启动方式</span>
+    <a href="/2019/02/20/Mycat概述(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Mycat概述</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
