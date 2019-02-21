@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Harvey&#39;s blog</title>
+  <title>Mycat实现读写分离 | Harvey&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Harvey's Blog" />
   
-  <meta name="description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+  <meta name="description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
+<meta name="keywords" content="Mycat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Harvey&#39;s blog">
+<meta property="og:title" content="Mycat实现读写分离">
 <meta property="og:url" content="http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+<meta property="og:description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-20T09:17:29.123Z">
+<meta property="og:updated_time" content="2019-02-21T06:32:09.777Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Harvey&#39;s blog">
-<meta name="twitter:description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+<meta name="twitter:title" content="Mycat实现读写分离">
+<meta name="twitter:description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -95,14 +96,101 @@
         <section id="main" class="body-wrap"><article id="post-Mycat实现读写分离(二)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Mycat实现读写分离
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Mycat/">Mycat</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            
+            <p>##一.前期规划<br>在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.168 8066 Mycat容器</span><br><span class="line">192.168.0.168 3307 mysql容器(slave)</span><br><span class="line">192.168.0.168 3308 mysql容器(master)</span><br></pre></td></tr></table></figure></p>
+<p>##二.配置server.xml参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;user name=&quot;iwunu&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot;&gt;iwunu&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;schemas&quot;&gt;NBIOT&lt;/property&gt;</span><br><span class="line">&lt;/user&gt;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>用户配置节点</td>
+</tr>
+<tr>
+<td>name</td>
+<td>连接Mycat的用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>连接Mycat的密码</td>
+</tr>
+<tr>
+<td>schemas</td>
+<td>数据库名，会与schema.xml中的配置关联，多个用逗号隔开，例如需要这个用户管理两个数据库iwunu1,iwunu2</td>
+</tr>
+</tbody>
+</table>
+<p>###三.配置schema.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE mycat:schema SYSTEM &quot;schema.dtd&quot;&gt;</span><br><span class="line">&lt;mycat:schema xmlns:mycat=&quot;http://io.mycat/&quot;&gt;</span><br><span class="line">        &lt;schema name=&quot;NBIOT&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;1000&quot; dataNode=&quot;dn1&quot;&gt;</span><br><span class="line">        &lt;/schema&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataNode name=&quot;dn1&quot; dataHost=&quot;localhost1&quot; database=&quot;iwunulog&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataHost name=&quot;localhost1&quot; maxCon=&quot;1000&quot; minCon=&quot;10&quot; balance=&quot;1&quot;</span><br><span class="line">                          writeType=&quot;0&quot; dbType=&quot;mysql&quot; dbDriver=&quot;native&quot;&gt;</span><br><span class="line">                &lt;heartbeat&gt;select user()&lt;/heartbeat&gt;</span><br><span class="line">                &lt;writeHost host=&quot;hostM1&quot; url=&quot;192.168.0.168:3308&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; &gt;</span><br><span class="line">                  &lt;readHost host=&quot;hostS2&quot; url=&quot;192.168.0.168:3307&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; /&gt;</span><br><span class="line">                &lt;/writeHost&gt;</span><br><span class="line">        &lt;/dataHost&gt;</span><br><span class="line">&lt;/mycat:schema&gt;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schema</td>
+<td>数据库设置，此数据库为逻辑数据库，name与server.xml中schema对应</td>
+</tr>
+<tr>
+<td>dataNode</td>
+<td>分片信息，也就是分库相关配置</td>
+</tr>
+<tr>
+<td>dataHost</td>
+<td>物理数据库，真正存储数据的数据库</td>
+</tr>
+</tbody>
+</table>
+<p>每个节点的属性逐一说明：</p>
+<p><strong><em>schema:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 逻辑数据库名，与server.xml中的schema对应 |<br>| checkSQLschema | 数据库前缀相关设置，建议看文档，这里暂时设为false |<br>| sqlMaxLimit | select 时默认的limit，避免查询全表 | </p>
+<p><strong><em>table:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 表名，物理数据库中表名 |<br>| dataNode | 表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name |<br>| primaryKey | 主键字段名，自动生成主键时需要设置 |<br>| autoIncrement | 是否自增 |<br>| rule | 分片规则名 | </p>
+<p><strong><em>dataNode:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 节点名，与table中dataNode对应 |<br>| dataNode | 物理数据库名，与datahost中name对应 |<br>| database | 物理数据库中数据库名 | </p>
+<p><strong><em>dataHost:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 物理数据库名，与dataNode中dataHost对应 |<br>| balance | 均衡负载的方式 |<br>| writeType | 写入方式 |<br>| dbType | 数据库类型 |<br>| heartbeat | 心跳检测语句，注意语句结尾的分号要加 | </p>
+<p>##四.配置Mysql<br>需要注意的是Mysql主从分离只是在读的时候做了处理，写入数据的时候，只会写入到writehost，Mycat本身没有主从复制功能，需要单独实现mysql的主从复制功能</p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年02月20日 17:17</p>
-        <p>原始链接： <a class="post-url" href="/2019/02/20/Mycat实现读写分离(二)/" title="">http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/</a></p>
+        <p>最后更新： 2019年02月21日 14:32</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/20/Mycat实现读写分离(二)/" title="Mycat实现读写分离">http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/</a></p>
         <footer>
             <a href="http://mrhe.top">
                 <img src="/images/logo.png" alt="Harvey">
@@ -128,7 +216,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&title=Harvey's blog&pic=http://mrhe.topimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&title=《Mycat实现读写分离》 — Harvey's blog&pic=https://ws4.sinaimg.cn/large/006tKfTcgy1g0cxpjbrcwj30jm0c9gls.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -138,7 +226,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&title=Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&title=《Mycat实现读写分离》 — Harvey's blog&source=再牛逼的梦想，也抵不过傻逼式的坚持" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -148,7 +236,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Harvey's blog&url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&via=http://mrhe.top" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mycat实现读写分离》 — Harvey's blog&url=http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/&via=http://mrhe.top" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -172,6 +260,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Mycat/" class="color1">Mycat</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -249,7 +344,7 @@
             <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mycat/">Mycat</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/java8/">java8</a><a class="category-link" href="/categories/springboot/">springboot</a><a class="category-link" href="/categories/工作/">工作</a><a class="category-link" href="/categories/工具/">工具</a><a class="category-link" href="/categories/摘抄/">摘抄</a><a class="category-link" href="/categories/读书笔记/">读书笔记</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -276,7 +371,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 10px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/Optional/" style="font-size: 10px;">Optional</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/java8/" style="font-size: 20px;">java8</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/摘抄/" style="font-size: 10px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/默认方法/" style="font-size: 10px;">默认方法</a>
         </div>
     </div>
 </div>
