@@ -125,8 +125,8 @@
         </div>
         <div class="article-feed">
             <p>
-                ##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master)
-##二.配置server.xml参数1234&lt;user name=...
+                一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master)
+二.配置server.xml参数1234&lt;user name=&quo...
             </p>
         </div>
       
@@ -638,6 +638,72 @@ dd -&gt; 删除...
 
 
   
+    <article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/CompletableFuture组合式异步编程/"  >CompletableFuture组合式异步编程</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/java/">java</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/01/10/CompletableFuture组合式异步编程/" >
+                
+                <img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" alt="CompletableFuture组合式异步编程" title="CompletableFuture组合式异步编程">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                组合式编程的优势
+不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。
+使用CompletableFuture构建异步应用通过一个例子来描述：
+背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。
+通过代码描述同步和异步的实现区别同步的实现方式123456789101112131415...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-01-10</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java8/" class="color1">java8</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/01/10/CompletableFuture组合式异步编程/#more" class="article-more-link" >more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-如何阅读一本书" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -698,72 +764,6 @@ dd -&gt; 删除...
         </ul>
         
             <a href="/2018/01/10/如何阅读一本书/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-CompletableFuture组合式异步编程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/CompletableFuture组合式异步编程/"  >CompletableFuture组合式异步编程</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/java/">java</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/01/10/CompletableFuture组合式异步编程/" >
-                
-                <img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fnij7pn5nuj30b407emx5.jpg" alt="CompletableFuture组合式异步编程" title="CompletableFuture组合式异步编程">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                组合式编程的优势
-不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。
-使用CompletableFuture构建异步应用通过一个例子来描述：
-背景创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。
-通过代码描述同步和异步的实现区别同步的实现方式123456789101112131415...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-01-10</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/java8/" class="color1">java8</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2018/01/10/CompletableFuture组合式异步编程/#more" class="article-more-link" >more&gt;&gt;</a>
         
     </footer>
   </div>

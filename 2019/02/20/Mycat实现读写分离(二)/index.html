@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="Harvey's Blog" />
   
-  <meta name="description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
+  <meta name="description" content="一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) 二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;quot;">
 <meta name="keywords" content="Mycat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mycat实现读写分离">
 <meta property="og:url" content="http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/index.html">
 <meta property="og:site_name" content="Harvey&#39;s blog">
-<meta property="og:description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
+<meta property="og:description" content="一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) 二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-21T06:32:09.777Z">
+<meta property="og:updated_time" content="2019-02-21T06:34:39.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat实现读写分离">
-<meta name="twitter:description" content="##一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) ##二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;q">
+<meta name="twitter:description" content="一.前期规划在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下123192.168.0.168 8066 Mycat容器192.168.0.168 3307 mysql容器(slave)192.168.0.168 3308 mysql容器(master) 二.配置server.xml参数1234&amp;lt;user name=&amp;quot;iwunu&amp;quot;">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -129,8 +129,8 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>##一.前期规划<br>在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.168 8066 Mycat容器</span><br><span class="line">192.168.0.168 3307 mysql容器(slave)</span><br><span class="line">192.168.0.168 3308 mysql容器(master)</span><br></pre></td></tr></table></figure></p>
-<p>##二.配置server.xml参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;user name=&quot;iwunu&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot;&gt;iwunu&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;schemas&quot;&gt;NBIOT&lt;/property&gt;</span><br><span class="line">&lt;/user&gt;</span><br></pre></td></tr></table></figure></p>
+            <h2 id="一-前期规划"><a href="#一-前期规划" class="headerlink" title="一.前期规划"></a>一.前期规划</h2><p>在同一台服务器上测试，创建三个docker容器，两个mysql，一个mycat，具体规划如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.168 8066 Mycat容器</span><br><span class="line">192.168.0.168 3307 mysql容器(slave)</span><br><span class="line">192.168.0.168 3308 mysql容器(master)</span><br></pre></td></tr></table></figure></p>
+<h2 id="二-配置server-xml参数"><a href="#二-配置server-xml参数" class="headerlink" title="二.配置server.xml参数"></a>二.配置server.xml参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;user name=&quot;iwunu&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot;&gt;iwunu&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;schemas&quot;&gt;NBIOT&lt;/property&gt;</span><br><span class="line">&lt;/user&gt;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -157,7 +157,7 @@
 </tr>
 </tbody>
 </table>
-<p>###三.配置schema.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE mycat:schema SYSTEM &quot;schema.dtd&quot;&gt;</span><br><span class="line">&lt;mycat:schema xmlns:mycat=&quot;http://io.mycat/&quot;&gt;</span><br><span class="line">        &lt;schema name=&quot;NBIOT&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;1000&quot; dataNode=&quot;dn1&quot;&gt;</span><br><span class="line">        &lt;/schema&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataNode name=&quot;dn1&quot; dataHost=&quot;localhost1&quot; database=&quot;iwunulog&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataHost name=&quot;localhost1&quot; maxCon=&quot;1000&quot; minCon=&quot;10&quot; balance=&quot;1&quot;</span><br><span class="line">                          writeType=&quot;0&quot; dbType=&quot;mysql&quot; dbDriver=&quot;native&quot;&gt;</span><br><span class="line">                &lt;heartbeat&gt;select user()&lt;/heartbeat&gt;</span><br><span class="line">                &lt;writeHost host=&quot;hostM1&quot; url=&quot;192.168.0.168:3308&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; &gt;</span><br><span class="line">                  &lt;readHost host=&quot;hostS2&quot; url=&quot;192.168.0.168:3307&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; /&gt;</span><br><span class="line">                &lt;/writeHost&gt;</span><br><span class="line">        &lt;/dataHost&gt;</span><br><span class="line">&lt;/mycat:schema&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="三-配置schema-xml"><a href="#三-配置schema-xml" class="headerlink" title="三.配置schema.xml"></a>三.配置schema.xml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE mycat:schema SYSTEM &quot;schema.dtd&quot;&gt;</span><br><span class="line">&lt;mycat:schema xmlns:mycat=&quot;http://io.mycat/&quot;&gt;</span><br><span class="line">        &lt;schema name=&quot;NBIOT&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;1000&quot; dataNode=&quot;dn1&quot;&gt;</span><br><span class="line">        &lt;/schema&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataNode name=&quot;dn1&quot; dataHost=&quot;localhost1&quot; database=&quot;iwunulog&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dataHost name=&quot;localhost1&quot; maxCon=&quot;1000&quot; minCon=&quot;10&quot; balance=&quot;1&quot;</span><br><span class="line">                          writeType=&quot;0&quot; dbType=&quot;mysql&quot; dbDriver=&quot;native&quot;&gt;</span><br><span class="line">                &lt;heartbeat&gt;select user()&lt;/heartbeat&gt;</span><br><span class="line">                &lt;writeHost host=&quot;hostM1&quot; url=&quot;192.168.0.168:3308&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; &gt;</span><br><span class="line">                  &lt;readHost host=&quot;hostS2&quot; url=&quot;192.168.0.168:3307&quot; user=&quot;root&quot; password=&quot;Iwunu_20180212&quot; /&gt;</span><br><span class="line">                &lt;/writeHost&gt;</span><br><span class="line">        &lt;/dataHost&gt;</span><br><span class="line">&lt;/mycat:schema&gt;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -185,11 +185,11 @@
 <p><strong><em>table:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 表名，物理数据库中表名 |<br>| dataNode | 表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name |<br>| primaryKey | 主键字段名，自动生成主键时需要设置 |<br>| autoIncrement | 是否自增 |<br>| rule | 分片规则名 | </p>
 <p><strong><em>dataNode:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 节点名，与table中dataNode对应 |<br>| dataNode | 物理数据库名，与datahost中name对应 |<br>| database | 物理数据库中数据库名 | </p>
 <p><strong><em>dataHost:</em></strong><br>| 属性 | 说明 |<br>| —— | —— |<br>| name | 物理数据库名，与dataNode中dataHost对应 |<br>| balance | 均衡负载的方式 |<br>| writeType | 写入方式 |<br>| dbType | 数据库类型 |<br>| heartbeat | 心跳检测语句，注意语句结尾的分号要加 | </p>
-<p>##四.配置Mysql<br>需要注意的是Mysql主从分离只是在读的时候做了处理，写入数据的时候，只会写入到writehost，Mycat本身没有主从复制功能，需要单独实现mysql的主从复制功能</p>
+<h2 id="四-配置Mysql"><a href="#四-配置Mysql" class="headerlink" title="四.配置Mysql"></a>四.配置Mysql</h2><p>需要注意的是Mysql主从分离只是在读的时候做了处理，写入数据的时候，只会写入到writehost，Mycat本身没有主从复制功能，需要单独实现mysql的主从复制功能</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年02月21日 14:32</p>
+        <p>最后更新： 2019年02月21日 14:34</p>
         <p>原始链接： <a class="post-url" href="/2019/02/20/Mycat实现读写分离(二)/" title="Mycat实现读写分离">http://mrhe.top/2019/02/20/Mycat实现读写分离(二)/</a></p>
         <footer>
             <a href="http://mrhe.top">
@@ -274,6 +274,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-前期规划"><span class="post-toc-text">一.前期规划</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二-配置server-xml参数"><span class="post-toc-text">二.配置server.xml参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三-配置schema-xml"><span class="post-toc-text">三.配置schema.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四-配置Mysql"><span class="post-toc-text">四.配置Mysql</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
