@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -218,160 +218,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2019/02/20/Mycat概述(一)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/20/Mycat概述(一)/" itemprop="url">Mycat概述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T14:45:00+08:00">
-                2019-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mycat/" itemprop="url" rel="index">
-                    <span itemprop="name">Mycat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h2><p>Mycat是一个开源的分布式数据库系统，是一个实现了MySQL协议的Server,前端用户可以把它当做一个数据库代理，可以通过MySQL工具和命令行访问，也可以用jdbc协议与大多数主流数据库服务器通信。Mycat没用存储引擎，所以并不是完全意义的分布式数据库系统，一般称之为数据库中间件，介于数据库和应用之间，进行中间服务,如下图所示<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0cwcu04uxj317e0u0458.jpg" alt=""></p>
-<h2 id="Mycat可以做什么"><a href="#Mycat可以做什么" class="headerlink" title="Mycat可以做什么"></a>Mycat可以做什么</h2><p>Mycat核心功能就是分表分库，将一个大表水平切分N个小表，存储在后端MySQL服务器里活其它数据库里。Mycat发展到现在已经不是一个单纯的MySQL代理了，它的后端可以支持MySQL，SQLServer，Oracle，DB2，PostgreSQL等主流数据库，也支持MongoDB这种NoSQL方式的存储，无论哪种方式存储，在Mycat里，都是一个传统的数据库表，支持标准的SQL语句进行数据操作。Mycat 是一个强大的数据库中间件，不仅仅可以用作读写分离、以及分表分库、容灾备份，而且可以用于多 租户应用开发、云平台基础设施、让你的架构具备很强的适应性和灵活性，借助于即将发布的Mycat智能优化模块，系统的数据访问瓶颈和热点一目了然，根据这些统计分析数据，你可以自动或手工调整后端存储，将不同的表映射到不同存储引擎上，而整个应用的代码一行也不用改变。</p>
-<h2 id="Mycat原理"><a href="#Mycat原理" class="headerlink" title="Mycat原理"></a>Mycat原理</h2><p>Mycat会拦截用户发送过来的SQL语句，然后对语句进行一些特定的分析，如分片分析、路由分析、读写分离分析、缓存分析等，然后将SQL语句发送给后端真实的数据库，并将返回结果适当处理，最终再返回给用户。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0cxes8xz2j31ix0u0qfd.jpg" alt=""></p>
-<p>上述图片里，Orders 表被分为三个分片 datanode(简称 dn)，这三个分片是分布在两台 MySQL Server 上 (DataHost)，即 datanode=database@datahost 方式，因此你可以用一台到 N 台服务器来分片，分片规则为 (sharding rule)典型的字符串枚举分片规则，一个规则的定义是分片字段(sharding column)+分片函数(rule function)，这里的分片字段为prov而分片函数为字符串枚举方式。<br>当Mycat收到一个SQL时，会先解析这个SQL，查找涉及到的表，然后看此表的定义，如果有分片规则， 则获取到 SQL 里分片字段的值，并匹配分片函数，得到该SQL对应的分片列表，然后将SQL发往这些分片去执行，最后收集和处理所有分片返回的结果数据，并输出到客户端。以 select <em> from Orders where prov=?语句为 例，查到 prov=wuhan，按照分片函数，wuhan返回dn1，于是SQL就发给了MySQL1，去取DB1上的查询结果，并返回给用户。<br>如果上述 SQL 改为 select </em> from Orders where prov in (‘wuhan’,‘beijing’)，那么，SQL 就会发给MySQL1与MySQL2去执行，然后结果集合并后输出给用户。</p>
-<h2 id="Mycat应用场景"><a href="#Mycat应用场景" class="headerlink" title="Mycat应用场景"></a>Mycat应用场景</h2><p>Mycat发展到现在，适用的场景已经很丰富，而且不断有新用户给出新的创新性的方案，以下是几个典型的应用场景:</p>
-<ul>
-<li>单纯的读写分离，此时配置最为简单，支持读写分离，主从切换;</li>
-<li>分表分库，对于超过1000 万的表进行分片，最大支持 1000亿的单表分片;</li>
-<li>多租户应用，每个应用一个库，但应用程序只连接 Mycat，从而不改造程序本身，实现多租户化;</li>
-<li>报表系统，借助于 Mycat 的分表能力，处理大规模报表的统计;</li>
-<li>替代Hbase，分析大数据;</li>
-<li>作为海量数据实时查询的一种简单有效方案，比如100亿条频繁查询的记录需要在3秒内查询出来结果，除了基于主键的查询，还可能存在范围查询或其他属性查询，此时 Mycat 可能是最简单有效的选择。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -640,6 +486,160 @@
 </tbody>
 </table>
 <h2 id="四-配置Mysql"><a href="#四-配置Mysql" class="headerlink" title="四.配置Mysql"></a>四.配置Mysql</h2><p>需要注意的是Mysql主从分离只是在读的时候做了处理，写入数据的时候，只会写入到writehost，Mycat本身没有主从复制功能，需要单独实现mysql的主从复制功能</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2019/02/20/Mycat概述(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harvey">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harvey's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/Mycat概述(一)/" itemprop="url">Mycat概述</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T14:45:00+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mycat/" itemprop="url" rel="index">
+                    <span itemprop="name">Mycat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h2><p>Mycat是一个开源的分布式数据库系统，是一个实现了MySQL协议的Server,前端用户可以把它当做一个数据库代理，可以通过MySQL工具和命令行访问，也可以用jdbc协议与大多数主流数据库服务器通信。Mycat没用存储引擎，所以并不是完全意义的分布式数据库系统，一般称之为数据库中间件，介于数据库和应用之间，进行中间服务,如下图所示<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0cwcu04uxj317e0u0458.jpg" alt=""></p>
+<h2 id="Mycat可以做什么"><a href="#Mycat可以做什么" class="headerlink" title="Mycat可以做什么"></a>Mycat可以做什么</h2><p>Mycat核心功能就是分表分库，将一个大表水平切分N个小表，存储在后端MySQL服务器里活其它数据库里。Mycat发展到现在已经不是一个单纯的MySQL代理了，它的后端可以支持MySQL，SQLServer，Oracle，DB2，PostgreSQL等主流数据库，也支持MongoDB这种NoSQL方式的存储，无论哪种方式存储，在Mycat里，都是一个传统的数据库表，支持标准的SQL语句进行数据操作。Mycat 是一个强大的数据库中间件，不仅仅可以用作读写分离、以及分表分库、容灾备份，而且可以用于多 租户应用开发、云平台基础设施、让你的架构具备很强的适应性和灵活性，借助于即将发布的Mycat智能优化模块，系统的数据访问瓶颈和热点一目了然，根据这些统计分析数据，你可以自动或手工调整后端存储，将不同的表映射到不同存储引擎上，而整个应用的代码一行也不用改变。</p>
+<h2 id="Mycat原理"><a href="#Mycat原理" class="headerlink" title="Mycat原理"></a>Mycat原理</h2><p>Mycat会拦截用户发送过来的SQL语句，然后对语句进行一些特定的分析，如分片分析、路由分析、读写分离分析、缓存分析等，然后将SQL语句发送给后端真实的数据库，并将返回结果适当处理，最终再返回给用户。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0cxes8xz2j31ix0u0qfd.jpg" alt=""></p>
+<p>上述图片里，Orders 表被分为三个分片 datanode(简称 dn)，这三个分片是分布在两台 MySQL Server 上 (DataHost)，即 datanode=database@datahost 方式，因此你可以用一台到 N 台服务器来分片，分片规则为 (sharding rule)典型的字符串枚举分片规则，一个规则的定义是分片字段(sharding column)+分片函数(rule function)，这里的分片字段为prov而分片函数为字符串枚举方式。<br>当Mycat收到一个SQL时，会先解析这个SQL，查找涉及到的表，然后看此表的定义，如果有分片规则， 则获取到 SQL 里分片字段的值，并匹配分片函数，得到该SQL对应的分片列表，然后将SQL发往这些分片去执行，最后收集和处理所有分片返回的结果数据，并输出到客户端。以 select <em> from Orders where prov=?语句为 例，查到 prov=wuhan，按照分片函数，wuhan返回dn1，于是SQL就发给了MySQL1，去取DB1上的查询结果，并返回给用户。<br>如果上述 SQL 改为 select </em> from Orders where prov in (‘wuhan’,‘beijing’)，那么，SQL 就会发给MySQL1与MySQL2去执行，然后结果集合并后输出给用户。</p>
+<h2 id="Mycat应用场景"><a href="#Mycat应用场景" class="headerlink" title="Mycat应用场景"></a>Mycat应用场景</h2><p>Mycat发展到现在，适用的场景已经很丰富，而且不断有新用户给出新的创新性的方案，以下是几个典型的应用场景:</p>
+<ul>
+<li>单纯的读写分离，此时配置最为简单，支持读写分离，主从切换;</li>
+<li>分表分库，对于超过1000 万的表进行分片，最大支持 1000亿的单表分片;</li>
+<li>多租户应用，每个应用一个库，但应用程序只连接 Mycat，从而不改造程序本身，实现多租户化;</li>
+<li>报表系统，借助于 Mycat 的分表能力，处理大规模报表的统计;</li>
+<li>替代Hbase，分析大数据;</li>
+<li>作为海量数据实时查询的一种简单有效方案，比如100亿条频繁查询的记录需要在3秒内查询出来结果，除了基于主键的查询，还可能存在范围查询或其他属性查询，此时 Mycat 可能是最简单有效的选择。</li>
+</ul>
 
           
         
@@ -1686,6 +1686,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/摘抄/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harvey">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harvey's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/10/摘抄/" itemprop="url">摘抄</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:00:00+08:00">
+                2018-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/摘抄/" itemprop="url" rel="index">
+                    <span itemprop="name">摘抄</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="关于反思"><a href="#关于反思" class="headerlink" title="关于反思"></a>关于反思</h2><p>我们在进行反思的过程中，要注意三点:</p>
+<ol>
+<li>及时反思，还原事件细节，可用纸笔完成</li>
+<li>思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。</li>
+<li>关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1859,221 +2006,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/如何阅读一本书/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/如何阅读一本书/" itemprop="url">如何阅读一本书</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:00:00+08:00">
-                2018-01-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="读书的四层境界"><a href="#读书的四层境界" class="headerlink" title="读书的四层境界"></a>读书的四层境界</h2><ul>
-<li>基础阅读<br>快速浏览，不管能不能读懂，知道在说什么就行</li>
-<li><p>检视阅读<br>用最少的时间了解书在说什么，书的结构，包含部分，分类，以及作者意图<br>分为两种：</p>
-<ul>
-<li>有系统的略读或粗读<br>最少的时间找到这本书的主题或思想线索，包括书名，标题，序言，目录，索引，然后从目录里挑选一些跟主题息息相关的章节来看，然后打开书随便看一下，或者挑一些阅读下</li>
-<li>粗浅的阅读<br>重点在于不停顿，哪怕读到看不懂的地方也不要停下来查资料，直接忽略掉，重点放在自己能看懂的地方，哪怕最终只读懂了书里面一小部分，但是没有关系，起码已经读懂了这些，<strong><em>享受阅读的乐趣是学会的前提</em></strong></li>
-</ul>
-</li>
-<li><p>分析阅读<br>把一本书看透，嚼烂和消化书中内容</p>
-</li>
-<li>主题阅读<br>读的不是书而是主题，同时阅读某个主题的多本书</li>
-</ul>
-<h2 id="阅读的时候要提出四个基本的问题"><a href="#阅读的时候要提出四个基本的问题" class="headerlink" title="阅读的时候要提出四个基本的问题"></a>阅读的时候要提出四个基本的问题</h2><ul>
-<li>整体来看这本书在说什么</li>
-<li>作者细节上说了什么</li>
-<li>说的有道理吗，是部分还是全部</li>
-<li>这本书和你有关系吗</li>
-</ul>
-<h2 id="分析阅读"><a href="#分析阅读" class="headerlink" title="分析阅读"></a>分析阅读</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>阅读之前一定要知道自己在读的是哪一类书，学会如何分类，可以简单把书分为小说类和论说类，或者理论性作品刚和实用型作品</p>
-<h3 id="透视一本书"><a href="#透视一本书" class="headerlink" title="透视一本书"></a>透视一本书</h3><ul>
-<li>寻找书的骨架</li>
-<li>使用单一的句子，或最多几句话来叙述整本书的内容</li>
-<li>将书中重要的篇章列举出来，并能说明他们是如何按照一定的顺序组成一个架构的</li>
-<li>找出作者要问的问题或者要解决的问题</li>
-<li>找出重要的单字，并透过他们与作者达成共识</li>
-<li>将一本书重要的句子圈出来，找出其中主旨</li>
-<li>从相关的关联中，设法架构出一本书的基础论述</li>
-<li>找出作者解答</li>
-<li>在评论之前一定能肯定的说我了解了</li>
-<li>不同意作者观点要理性表达自己意见，不辩驳，不争论</li>
-<li>尊重知识和个人观点，做任何判断前，要找到理论依据</li>
-</ul>
-<h2 id="如何阅读各种类型书籍"><a href="#如何阅读各种类型书籍" class="headerlink" title="如何阅读各种类型书籍"></a>如何阅读各种类型书籍</h2><h3 id="如何阅读实用型书"><a href="#如何阅读实用型书" class="headerlink" title="如何阅读实用型书"></a>如何阅读实用型书</h3><ul>
-<li>检查作者是否提出了合理可执行，并且效果可检查的方法是分辨是否是实用类书籍的一个方法。</li>
-<li>实际问题只能靠行动来解决，看完不行动，那看的就是鸡汤</li>
-</ul>
-<h3 id="如何阅读想象文学"><a href="#如何阅读想象文学" class="headerlink" title="如何阅读想象文学"></a>如何阅读想象文学</h3><ul>
-<li>不要抗拒想象文学带给你的影响力</li>
-<li>不要去找共识，主旨和论述</li>
-</ul>
-<h3 id="如何阅读故事书-小说"><a href="#如何阅读故事书-小说" class="headerlink" title="如何阅读故事书(小说)"></a>如何阅读故事书(小说)</h3><ul>
-<li>快速并且全心全意的读</li>
-<li>不要太在意暂时的障碍，继续读下去，自然会柳暗花明</li>
-</ul>
-<h3 id="如何阅读史书和戏剧"><a href="#如何阅读史书和戏剧" class="headerlink" title="如何阅读史书和戏剧"></a>如何阅读史书和戏剧</h3><ul>
-<li>主动，集中注意力的阅读</li>
-<li>运用更多的想象力</li>
-<li>最好一口气读完</li>
-</ul>
-<h3 id="如何阅读抒情诗"><a href="#如何阅读抒情诗" class="headerlink" title="如何阅读抒情诗"></a>如何阅读抒情诗</h3><ul>
-<li>一口气读完</li>
-<li>重复，大声读出来</li>
-<li>了解一首诗最好的方式就是一遍遍的去读它</li>
-</ul>
-<h3 id="如何阅读历史书"><a href="#如何阅读历史书" class="headerlink" title="如何阅读历史书"></a>如何阅读历史书</h3><ul>
-<li>可以抱着怀疑的态度</li>
-<li>明白真正发生过什么</li>
-<li>分析这些历史对现在和未来的意义</li>
-</ul>
-<h3 id="如何阅读哲学书"><a href="#如何阅读哲学书" class="headerlink" title="如何阅读哲学书"></a>如何阅读哲学书</h3><ul>
-<li>积极主动的思考</li>
-<li>像哲学家一样论证你的观点</li>
-</ul>
-<h2 id="主题阅读的五个步骤"><a href="#主题阅读的五个步骤" class="headerlink" title="主题阅读的五个步骤"></a>主题阅读的五个步骤</h2><ul>
-<li>找到相关章节</li>
-<li>构建你自己的术语体系</li>
-<li>理清需要解答的问题</li>
-<li>界定和确认议题</li>
-<li>分析和讨论</li>
-</ul>
-<h2 id="主题阅读的两个要点"><a href="#主题阅读的两个要点" class="headerlink" title="主题阅读的两个要点"></a>主题阅读的两个要点</h2><ul>
-<li>保持客观立场</li>
-<li>有效使用主题工具书</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2201,7 +2133,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -2300,6 +2232,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
 
