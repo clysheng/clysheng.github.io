@@ -1,85 +1,24 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html lang=zh>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
+  <title>Hexo</title>
+  <meta name="description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Harvey&#39;s blog">
 <meta property="og:url" content="http://mrhe.top/page/2/index.html">
@@ -89,2015 +28,786 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Harvey&#39;s blog">
 <meta name="twitter:description" content="再牛逼的梦想，也抵不过傻逼式的坚持">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: 'AUMEJKQV9O',
-      apiKey: '41a7b28b82fc9c14c1b4ffa6173ff625',
-      indexName: 'harveyblog',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://mrhe.top/page/2/"/>
-
-
-
-
-
-  <title>Harvey's blog</title>
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://mrhe.top/page/2/index.html">
   
-
-
-
-
-
-
-
-
+    <link rel="alternate" href="/atom.xml" title="Harvey&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-  
-    
-  
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Harvey's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-      
-        <p class="site-subtitle">无论工作多忙，计划都要坚持</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
-  
-    <ul id="menu" class="menu">
-      
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/.">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            <i class="icon icon-home-fill"></i>
             
-            首页
+            <span class="menu-title">Home</span>
           </a>
         </li>
-      
+        
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            <i class="icon icon-archives-fill"></i>
             
-            归档
+            <span class="menu-title">Archives</span>
           </a>
         </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/CompletableFuture组合式异步编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/CompletableFuture组合式异步编程/" itemprop="url">CompletableFuture组合式异步编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:00:00+08:00">
-                2018-01-10
-              </time>
+            <i class="icon icon-folder"></i>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>组合式编程的优势</p>
-<p>不需要为等待某些服务的响应阻塞应用的运行，充分的利用cpu，通过并行处理，从而最大化程序的吞吐量。</p>
-<h2 id="使用CompletableFuture构建异步应用"><a href="#使用CompletableFuture构建异步应用" class="headerlink" title="使用CompletableFuture构建异步应用"></a>使用CompletableFuture构建异步应用</h2><p>通过一个例子来描述：</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>创建一个名为最佳价格查询器的应用，它会查询多个在线商店，依据给定的产品和服务找出最低价格。</p>
-<h3 id="通过代码描述同步和异步的实现区别"><a href="#通过代码描述同步和异步的实现区别" class="headerlink" title="通过代码描述同步和异步的实现区别"></a>通过代码描述同步和异步的实现区别</h3><h4 id="同步的实现方式"><a href="#同步的实现方式" class="headerlink" title="同步的实现方式"></a>同步的实现方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Shop &#123;</span><br><span class="line"></span><br><span class="line">    private Random random = new Random() ;</span><br><span class="line"></span><br><span class="line">    public double getPrice(String product)&#123;</span><br><span class="line">        return calculatePrice(product) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 模拟查询延迟</span><br><span class="line">     */</span><br><span class="line">    public static void delay() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(1000L);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 随机返回一个价格</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private double calculatePrice(String product) &#123;</span><br><span class="line">        delay();</span><br><span class="line">        return random.nextDouble() * product.charAt(0) + product.charAt(1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>每次查询需要1s，如果同时查询多个商店价格，每一个都要等前一个查询完毕才能执行，耗时过长，而且浪费cpu性能。</p>
-<h4 id="异步的实现"><a href="#异步的实现" class="headerlink" title="异步的实现"></a>异步的实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class ShopSync &#123;</span><br><span class="line">    private Random random = new Random() ;</span><br><span class="line">    /**</span><br><span class="line">     * 创建异步计算对象</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public Future&lt;Double&gt; getPriceAsync(String product) &#123;</span><br><span class="line">        CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;();</span><br><span class="line">            new Thread( () -&gt; &#123;</span><br><span class="line">            double price = calculatePrice(product);</span><br><span class="line">            futurePrice.complete(price);</span><br><span class="line">         &#125;).start();</span><br><span class="line">        return futurePrice;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 模拟查询延迟</span><br><span class="line">     */</span><br><span class="line">    public static void delay() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(1000L);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            throw new RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 随机返回一个价格</span><br><span class="line">     * @param product</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private double calculatePrice(String product) &#123;</span><br><span class="line">        delay();</span><br><span class="line">        return random.nextDouble() * product.charAt(0) + product.charAt(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建了一个代表异步计算的CompletableFuture实例，计算完成时包含计算结果，它创建了另外一个线程去执行计算，而实时返回一个Future实例，但最终结果计算出来，可以通过<strong><em>get</em></strong>方法得到最终结果。</p>
-<p>这样做的优势是，当第一家商店的价格未计算出来之前，可以继续查询其它商店价格，应用不会被阻塞。</p>
-<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>如果价格计算过程中产生了错误，会是一个很糟糕的结果，因为提示错误的异常会被限制在试图计算商品价格的当前范围内，最终会杀死该线程，导致等待get方法返回结果的的客户端永久地被阻塞。如何避免呢，实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public Future&lt;Double&gt; getPriceAsync(String product)&#123;</span><br><span class="line">    CompletableFuture&lt;Double&gt; futurePrice = new CompletableFuture&lt;&gt;();</span><br><span class="line">    new Thread(</span><br><span class="line">            () -&gt; &#123;</span><br><span class="line">                try&#123;</span><br><span class="line">                    double price = calculatePrice(product);</span><br><span class="line">                    futurePrice.complete(price);</span><br><span class="line">                &#125;catch (Exception ex)&#123;</span><br><span class="line">                    futurePrice.completeExceptionally(ex) ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    ).start(); ;</span><br><span class="line">    return futurePrice ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过这种方式线程内部会抛出一个<strong><em>Exception</em></strong>异常，客户端不需要一直阻塞下去了，而是得到抛出异常消息。</p>
-<h3 id="使用工厂方法supplyAsync创建CompletableFuture"><a href="#使用工厂方法supplyAsync创建CompletableFuture" class="headerlink" title="使用工厂方法supplyAsync创建CompletableFuture"></a>使用工厂方法supplyAsync创建CompletableFuture</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Future&lt;Double&gt; getPriceAsync(String product) &#123;</span><br><span class="line">        return CompletableFuture.supplyAsync(() -&gt; calculatePrice(product));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>提供了和上面异常处理例子同样的错误管理机制</p>
-<h3 id="新背景"><a href="#新背景" class="headerlink" title="新背景"></a>新背景</h3><p>以异步的方式查询多个商店，避免被单一的请求所阻塞，由此提升价格查询器的性能和吞吐量。</p>
-<h3 id="代码重构"><a href="#代码重构" class="headerlink" title="代码重构"></a>代码重构</h3><p>首先提供一个商家列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;)) ;</span><br></pre></td></tr></table></figure>
-<p>查询所有商品价格，返回一个List列表</p>
-<p>采用顺序查询的方式,以stream流的方式实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        return shops.stream().map(</span><br><span class="line">                shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product))</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>验证该方式的执行性能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">long start = System.nanoTime();</span><br><span class="line">        System.out.println(getPrices(&quot;myPhone27S&quot;));</span><br><span class="line">        long duration = (System.nanoTime() - start) / 1_000_000;</span><br><span class="line">        System.out.println(&quot;Done in &quot; + duration + &quot; msecs&quot;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is 132.83, szshop price is 217.36, gzshop price is 189.29, cqshop price is 202.46, hzshop price is 124.39, njshop price is 170.00, wqshop price is 207.80, syshop price is 127.27, zzshop price is 140.72, whshop price is 145.39, jlshop price is 148.55]</span><br><span class="line">Done in 11161 msecs</span><br></pre></td></tr></table></figure>
-<p>采用并行流的方式任然进行该操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        return shops.parallelStream().map(</span><br><span class="line">                shop-&gt;String.format(&quot;%s price is %.2f&quot;,shop.getProduct(),shop.getPrice(product))</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is 172.67, szshop price is 130.66, gzshop price is 128.48, cqshop price is 187.36, hzshop price is 151.71, njshop price is 227.09, wqshop price is 151.64, syshop price is 201.61, zzshop price is 204.35, whshop price is 141.16, jlshop price is 173.75]</span><br><span class="line">Done in 2127 msecs</span><br></pre></td></tr></table></figure>
-<p>采用CompletableFuture的方式任然执行该操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">       List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">               new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">               ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">       ) ;</span><br><span class="line">       List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map(</span><br><span class="line">               shop -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                       ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product)</span><br><span class="line">               )</span><br><span class="line">       ).collect(toList()) ;</span><br><span class="line">       return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is227.95307135502128, szshop price is209.0834114771096, gzshop price is180.0509393450812, cqshop price is148.94408809816616, hzshop price is185.99930958873858, njshop price is209.2247143369758, wqshop price is219.53671202996978, syshop price is229.10979442419102, zzshop price is150.8647592512694, whshop price is128.58930830999253, jlshop price is183.3010472086476]</span><br><span class="line">Done in 2097 msecs</span><br></pre></td></tr></table></figure>
-<p>这个地方采用两个stream,主要是考虑操作之前的延迟特性，单一的流水线，发向不通商家的请求只能以同步和顺序执行的方式才会成功</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>通过上述三种方式，我们发现，顺训流最慢，但是并行流和CompletableFuture的方式并没有相差很多，主要原因是他们内部是同样通用的线程池，默认使用固定数目的线程，具体线程数可以采用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Runtime. getRuntime().availableProcessors()</span><br></pre></td></tr></table></figure>
-<p>查看，CompletableFuture允许对执行器<strong><em>Executor</em></strong>进行配置，尤其是线程池大小，让它以更适合应用需求的方式进行配置，</p>
-<h3 id="继续重构"><a href="#继续重构" class="headerlink" title="继续重构"></a>继续重构</h3><p>这次我们使用定制的执行器,继续执行价格查询器的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;String&gt; getPrices(String product)&#123;</span><br><span class="line">        List&lt;Shop&gt; shops = Arrays.asList(new Shop(&quot;bjshop&quot;),new Shop(&quot;szshop&quot;),new Shop(&quot;gzshop&quot;),</span><br><span class="line">                new Shop(&quot;cqshop&quot;),new Shop(&quot;hzshop&quot;),new Shop(&quot;njshop&quot;),new Shop(&quot;wqshop&quot;),new Shop(&quot;syshop&quot;)</span><br><span class="line">                ,new Shop(&quot;zzshop&quot;),new Shop(&quot;whshop&quot;),new Shop(&quot;jlshop&quot;)</span><br><span class="line">        ) ;</span><br><span class="line">        Executor executor = Executors.newFixedThreadPool(Math.min(shops.size(), 100),</span><br><span class="line">        new ThreadFactory() &#123;</span><br><span class="line">            public Thread newThread(Runnable r) &#123;</span><br><span class="line">                Thread t = new Thread(r);</span><br><span class="line">                t.setDaemon(true);</span><br><span class="line">                return t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = shops.stream().map(</span><br><span class="line">                shop -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                        ()-&gt;shop.getProduct()+&quot; price is&quot;+shop.getPrice(product),executor</span><br><span class="line">                )</span><br><span class="line">        ).collect(toList()) ;</span><br><span class="line">        return priceFutures.stream().map(CompletableFuture&lt;String&gt;::join).collect(toList()) ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bjshop price is195.2661437963214, szshop price is227.33733741114568, gzshop price is182.76554778672724, cqshop price is217.15629799864445, hzshop price is211.64835186412643, njshop price is203.95503485334427, wqshop price is209.7508691664398, syshop price is165.41938531709016, zzshop price is225.43285716654617, whshop price is144.96966191158535, jlshop price is206.97255470003094]</span><br><span class="line">Done in 1084 msecs</span><br></pre></td></tr></table></figure>
-<p>这次我们发现速度提升了，需要注意的是我们创建了一个由守护线程构成的线程池，程序图退出时它会被回收</p>
-<h3 id="如何确定执行器线程数目"><a href="#如何确定执行器线程数目" class="headerlink" title="如何确定执行器线程数目"></a>如何确定执行器线程数目</h3><blockquote>
-<p>《Java并发编程实战》一书中，Brian Goetz和合著者们为线程池大小的优化提供了不少中肯的建议。这非常重要，如果线程池中线程的数量过多，最终它们会竞争稀缺的处理器和内存资源，浪费大量的时间在上下文切换上。反之，如果线程的数目过少，正如你的应用所面临的情况，处理器的一些核可能就无法充分利用。Brian Goetz建议，线程池大小与处理器的利用率之比可以使用下面的公式进行估算:</p>
-<p>Nthreads = NCPU <em> UCPU </em> (1 + W/C)<br>其中:<br>❑NCPU是处理器的核的数目，可以通过Runtime.getRuntime().availableProce-ssors()得到<br>❑UCPU是期望的CPU利用率(该值应该介于0和1之间)<br>❑W/C是等待时间与计算时间的比率</p>
-</blockquote>
-<h3 id="使用流还是CompletableFuture"><a href="#使用流还是CompletableFuture" class="headerlink" title="使用流还是CompletableFuture"></a>使用流还是CompletableFuture</h3><ul>
-<li>如果进行的是计算密集型操作，并且没用I/O，那么推荐使用Stream接口</li>
-<li>如果并行的工作单元还涉及等待I/O操作那么使用CompletableFuture接口灵活性</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/摘抄/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/摘抄/" itemprop="url">摘抄</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:00:00+08:00">
-                2018-01-10
-              </time>
+            <i class="icon icon-tags"></i>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/摘抄/" itemprop="url" rel="index">
-                    <span itemprop="name">摘抄</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="关于反思"><a href="#关于反思" class="headerlink" title="关于反思"></a>关于反思</h2><p>我们在进行反思的过程中，要注意三点:</p>
-<ol>
-<li>及时反思，还原事件细节，可用纸笔完成</li>
-<li>思考时间的”反应链”，即他的开始、发展、转折和结束，它背后的动因、阻力和关键节点。</li>
-<li>关注发生的意外事件，思考自己是否存在偏见，克服思维惰性。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/10/如何阅读一本书/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/10/如何阅读一本书/" itemprop="url">如何阅读一本书</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:00:00+08:00">
-                2018-01-10
-              </time>
+            <i class="icon icon-project"></i>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="读书的四层境界"><a href="#读书的四层境界" class="headerlink" title="读书的四层境界"></a>读书的四层境界</h2><ul>
-<li>基础阅读<br>快速浏览，不管能不能读懂，知道在说什么就行</li>
-<li><p>检视阅读<br>用最少的时间了解书在说什么，书的结构，包含部分，分类，以及作者意图<br>分为两种：</p>
-<ul>
-<li>有系统的略读或粗读<br>最少的时间找到这本书的主题或思想线索，包括书名，标题，序言，目录，索引，然后从目录里挑选一些跟主题息息相关的章节来看，然后打开书随便看一下，或者挑一些阅读下</li>
-<li>粗浅的阅读<br>重点在于不停顿，哪怕读到看不懂的地方也不要停下来查资料，直接忽略掉，重点放在自己能看懂的地方，哪怕最终只读懂了书里面一小部分，但是没有关系，起码已经读懂了这些，<strong><em>享受阅读的乐趣是学会的前提</em></strong></li>
-</ul>
-</li>
-<li><p>分析阅读<br>把一本书看透，嚼烂和消化书中内容</p>
-</li>
-<li>主题阅读<br>读的不是书而是主题，同时阅读某个主题的多本书</li>
-</ul>
-<h2 id="阅读的时候要提出四个基本的问题"><a href="#阅读的时候要提出四个基本的问题" class="headerlink" title="阅读的时候要提出四个基本的问题"></a>阅读的时候要提出四个基本的问题</h2><ul>
-<li>整体来看这本书在说什么</li>
-<li>作者细节上说了什么</li>
-<li>说的有道理吗，是部分还是全部</li>
-<li>这本书和你有关系吗</li>
-</ul>
-<h2 id="分析阅读"><a href="#分析阅读" class="headerlink" title="分析阅读"></a>分析阅读</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>阅读之前一定要知道自己在读的是哪一类书，学会如何分类，可以简单把书分为小说类和论说类，或者理论性作品刚和实用型作品</p>
-<h3 id="透视一本书"><a href="#透视一本书" class="headerlink" title="透视一本书"></a>透视一本书</h3><ul>
-<li>寻找书的骨架</li>
-<li>使用单一的句子，或最多几句话来叙述整本书的内容</li>
-<li>将书中重要的篇章列举出来，并能说明他们是如何按照一定的顺序组成一个架构的</li>
-<li>找出作者要问的问题或者要解决的问题</li>
-<li>找出重要的单字，并透过他们与作者达成共识</li>
-<li>将一本书重要的句子圈出来，找出其中主旨</li>
-<li>从相关的关联中，设法架构出一本书的基础论述</li>
-<li>找出作者解答</li>
-<li>在评论之前一定能肯定的说我了解了</li>
-<li>不同意作者观点要理性表达自己意见，不辩驳，不争论</li>
-<li>尊重知识和个人观点，做任何判断前，要找到理论依据</li>
-</ul>
-<h2 id="如何阅读各种类型书籍"><a href="#如何阅读各种类型书籍" class="headerlink" title="如何阅读各种类型书籍"></a>如何阅读各种类型书籍</h2><h3 id="如何阅读实用型书"><a href="#如何阅读实用型书" class="headerlink" title="如何阅读实用型书"></a>如何阅读实用型书</h3><ul>
-<li>检查作者是否提出了合理可执行，并且效果可检查的方法是分辨是否是实用类书籍的一个方法。</li>
-<li>实际问题只能靠行动来解决，看完不行动，那看的就是鸡汤</li>
-</ul>
-<h3 id="如何阅读想象文学"><a href="#如何阅读想象文学" class="headerlink" title="如何阅读想象文学"></a>如何阅读想象文学</h3><ul>
-<li>不要抗拒想象文学带给你的影响力</li>
-<li>不要去找共识，主旨和论述</li>
-</ul>
-<h3 id="如何阅读故事书-小说"><a href="#如何阅读故事书-小说" class="headerlink" title="如何阅读故事书(小说)"></a>如何阅读故事书(小说)</h3><ul>
-<li>快速并且全心全意的读</li>
-<li>不要太在意暂时的障碍，继续读下去，自然会柳暗花明</li>
-</ul>
-<h3 id="如何阅读史书和戏剧"><a href="#如何阅读史书和戏剧" class="headerlink" title="如何阅读史书和戏剧"></a>如何阅读史书和戏剧</h3><ul>
-<li>主动，集中注意力的阅读</li>
-<li>运用更多的想象力</li>
-<li>最好一口气读完</li>
-</ul>
-<h3 id="如何阅读抒情诗"><a href="#如何阅读抒情诗" class="headerlink" title="如何阅读抒情诗"></a>如何阅读抒情诗</h3><ul>
-<li>一口气读完</li>
-<li>重复，大声读出来</li>
-<li>了解一首诗最好的方式就是一遍遍的去读它</li>
-</ul>
-<h3 id="如何阅读历史书"><a href="#如何阅读历史书" class="headerlink" title="如何阅读历史书"></a>如何阅读历史书</h3><ul>
-<li>可以抱着怀疑的态度</li>
-<li>明白真正发生过什么</li>
-<li>分析这些历史对现在和未来的意义</li>
-</ul>
-<h3 id="如何阅读哲学书"><a href="#如何阅读哲学书" class="headerlink" title="如何阅读哲学书"></a>如何阅读哲学书</h3><ul>
-<li>积极主动的思考</li>
-<li>像哲学家一样论证你的观点</li>
-</ul>
-<h2 id="主题阅读的五个步骤"><a href="#主题阅读的五个步骤" class="headerlink" title="主题阅读的五个步骤"></a>主题阅读的五个步骤</h2><ul>
-<li>找到相关章节</li>
-<li>构建你自己的术语体系</li>
-<li>理清需要解答的问题</li>
-<li>界定和确认议题</li>
-<li>分析和讨论</li>
-</ul>
-<h2 id="主题阅读的两个要点"><a href="#主题阅读的两个要点" class="headerlink" title="主题阅读的两个要点"></a>主题阅读的两个要点</h2><ul>
-<li>保持客观立场</li>
-<li>有效使用主题工具书</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/09/java8 Optional.1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/09/java8 Optional.1/" itemprop="url">Optional</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <li class="menu-item menu-item-books">
+          <a href="/books">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-09T09:30:00+08:00">
-                2018-01-09
-              </time>
+            <i class="icon icon-book-fill"></i>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="null引发的问题"><a href="#null引发的问题" class="headerlink" title="null引发的问题"></a>null引发的问题</h2><p>null最常见带来的问题就是<strong><em>NullPointerException</em></strong>，即使在我们认为可能出现null的地方加上if语句判断，任然会频发的和它打交道，而且还会代码出现很多的if嵌套，被它的概念提出者Tony Hoare称之为价值百万的失误</p>
-<h2 id="Optional的作用"><a href="#Optional的作用" class="headerlink" title="Optional的作用"></a>Optional的作用</h2><p>能非常清晰地界定出变量值的缺失是结构上的问题，还是你算法上的缺陷，抑或是你数据中的问题。另外，我们还想特别强调，引入Optional 类的意图并非要消除每一个null引用。与此相反，它的目标是帮助你更好地设计出普适的API， 让程序员看到方法签名，就能了解它是否接受一个Optional的值。这种强制会让你更积极地将 变量从Optional中解包出来，直面缺失的变量值。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="创建Optional对象"><a href="#创建Optional对象" class="headerlink" title="创建Optional对象"></a>创建Optional对象</h3><h4 id="声明一个空的Optional"><a href="#声明一个空的Optional" class="headerlink" title="声明一个空的Optional"></a>声明一个空的Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; car = Optional.empty() ;</span><br></pre></td></tr></table></figure>
-<h4 id="依据一个非空值创建Optional"><a href="#依据一个非空值创建Optional" class="headerlink" title="依据一个非空值创建Optional"></a>依据一个非空值创建Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car car = null ;</span><br><span class="line">Optional&lt;Car&gt; carOpt = Optional.of(car) ;</span><br></pre></td></tr></table></figure>
-<p>如果car是一个空值，这段代码会立即抛出<strong><em>NullPointerException</em></strong>，而不是等到试图访问car属性的时候</p>
-<h4 id="可接受null的Optional"><a href="#可接受null的Optional" class="headerlink" title="可接受null的Optional"></a>可接受null的Optional</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car car = null ;</span><br><span class="line">Optional&lt;Car&gt; carOpt = Optional.ofNullable(car) ;</span><br></pre></td></tr></table></figure>
-<p>如果car是空那么carOpt就是一个空对象，获取对象中的值的时候依然会抛出异常</p>
-<h3 id="一点注意"><a href="#一点注意" class="headerlink" title="一点注意"></a>一点注意</h3><p>Optional在设计的时候没有考虑做为类的字段使用，所以它并未实现序列化接口，所以某些要求序列的库或框架中使用Optional有可能会引发应用故障<br></p>
-<h2 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>empty</td>
-<td style="text-align:center">返回一个空的 Optional 实例</td>
-</tr>
-<tr>
-<td>flatMap</td>
-<td style="text-align:center">如果值存在，就对该值执行提供的 mapping 函数调用，返回一个 Optional 类型的值，否则就返回一个空的 Optional 对象</td>
-</tr>
-<tr>
-<td>get</td>
-<td style="text-align:center">如果该值存在，将该值用 Optional 封装返回，否则抛出一个 NoSuchElementException 异常</td>
-</tr>
-<tr>
-<td>ifPresent</td>
-<td style="text-align:center">如果值存在，就执行使用该值的方法调用，否则什么也不做</td>
-</tr>
-<tr>
-<td>isPresent</td>
-<td style="text-align:center">如果值存在就返回 true，否则返回 false</td>
-</tr>
-<tr>
-<td>map</td>
-<td style="text-align:center">如果值存在，就对该值执行提供的 mapping 函数调用</td>
-</tr>
-<tr>
-<td>of</td>
-<td style="text-align:center">将指定值用 Optional 封装之后返回，如果该值为 null，则抛出一个 NullPointerException 异常</td>
-</tr>
-<tr>
-<td>ofNullable</td>
-<td style="text-align:center">将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象</td>
-</tr>
-<tr>
-<td>orElse</td>
-<td style="text-align:center">如果有值则将其返回，否则返回一个默认值</td>
-</tr>
-<tr>
-<td>orElseGet</td>
-<td style="text-align:center">如果有值则将其返回，否则返回一个由指定的 Supplier 接口生成的值</td>
-</tr>
-<tr>
-<td>orElseThrow</td>
-<td style="text-align:center">如果有值则将其返回，否则抛出一个由指定的 Supplier 接口生成的异常</td>
-</tr>
-</tbody>
-</table>
-<h2 id="实战例子"><a href="#实战例子" class="headerlink" title="实战例子"></a>实战例子</h2><p>返回一个正整数，如果小于0或者不存在则返回0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Properties properties = new Properties() ;</span><br><span class="line">properties.put(&quot;a&quot;,1) ;</span><br><span class="line">properties.put(&quot;b&quot;,-5) ;</span><br><span class="line">properties.put(&quot;c&quot;,1) ;</span><br><span class="line"></span><br><span class="line"> public int getValueOptional(Properties properties,String name)&#123;</span><br><span class="line">    return Optional.ofNullable(properties.getProperty(name)).flatMap(OptionalTest::stringToInt).filter(i -&gt; i&gt;0).orElse(0) ;</span><br><span class="line">&#125;</span><br><span class="line">public static Optional&lt;Integer&gt; stringToInt(String s) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        return Optional.of(Integer.parseInt(s));</span><br><span class="line">    &#125; catch (NumberFormatException e) &#123;</span><br><span class="line">        return Optional.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过这个例子可以看出，Optional加入丰富了语意，减少了之前很多不必要的if判断，代码更简洁直观</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/06/工作中一次触发器的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/06/工作中一次触发器的使用/" itemprop="url">工作中一次触发器的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <li class="menu-item menu-item-links">
+          <a href="/links">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T20:00:00+08:00">
-                2018-01-06
-              </time>
+            <i class="icon icon-friendship"></i>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p> 本周五要下班的时候，客服那边突然提出了一个紧急问题，一个用户，因为最近家里面和老婆闹矛盾，正巧在我们平台投了一些私房钱，所以这段时间就不想收到平台发给她的回款短信，担心他老婆知道了，马上就周末了，毕竟又是特例，就不想在代码里面去做修改，所以就想到了触发器，我们服务器使用的是mysql，思路就是向数据库插入短信队列消息的时候，判断是不是这个客户的手机号，如果是就将短信状态置为一个不被队列扫描的状态，</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p> 具体代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER triggerName</span><br><span class="line">BEFORE INSERT ON tableName</span><br><span class="line">FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  if (NEW.phone=&apos;xxx&apos;)</span><br><span class="line">    THEN</span><br><span class="line">  set NEW.deal_flag=1 ;</span><br><span class="line">    end if;</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
-<h4 id="在创建触发器时，需要给出4条信息："><a href="#在创建触发器时，需要给出4条信息：" class="headerlink" title="在创建触发器时，需要给出4条信息："></a>在创建触发器时，需要给出4条信息：</h4><ul>
-<li>唯一的触发器名；</li>
-<li>触发器关联的表</li>
-<li>触发器应该响应的动作（ DELETE、INSERT 或UPDATE）</li>
-<li>触发器何时执行（处理之前或之后）。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/06/java8默认方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/06/java8默认方法/" itemprop="url">java8默认方法</a></h1>
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T09:30:00+08:00">
-                2018-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      </ul>
       
-      
-
-      
-        
-          
-            <h2 id="什么是默认方法"><a href="#什么是默认方法" class="headerlink" title="什么是默认方法"></a>什么是默认方法</h2><p>java8以前，接口中所有的方法必须为抽象方法，java8允许接口在声明方法的同时提供实现，通过两种方式可以完成这种操作</p>
-<ul>
-<li>接口内申明静态方法</li>
-<li>为接口引用方法提供一个默认的实现 </li>
-</ul>
-<p>意思就是，你可以为接口提供具体的实现</p>
-<h2 id="为什么引入默认方法"><a href="#为什么引入默认方法" class="headerlink" title="为什么引入默认方法"></a>为什么引入默认方法</h2><p>在以往，为接口添加方法会引发很多的改动，因为你的接口可能已经有了很多的实现类，为接口添加方法，所有的实现类都要实现它，显然是不能被接受的，但是默认方法的引入为接口的功能扩展提供了一个平滑的过度，如果你是一个类库的设计者，那么你可以放心的改进应用程序接口，无需担心遗留代码的影响</p>
-<h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><p>默认方法是由default修饰，并像类中声明的其它方法一样具有方法体，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public interface Sized &#123;</span><br><span class="line">    int size();</span><br><span class="line">    default boolean isEmpty() &#123;</span><br><span class="line">        return size() == 0;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么所有继承Sized类都会默认继承了<strong><em>isEmpty</em></strong>方法，而不用去实现它，如果想扩展该方法，可以重写它</p>
-<h2 id="行为多继承"><a href="#行为多继承" class="headerlink" title="行为多继承"></a>行为多继承</h2><p>默认方法的引入，让java8可以实现行为的多继承，这是以前无法想象的事情，它让类具有可以从多个来源重用代码的能力</p>
-<blockquote>
-<p> 继承不应该成为你一谈到代码复用就试图倚靠的万精油。比如，从一个拥有100个方法及 字段的类进行继承就不是个好主意，因为这其实会引入不必要的复杂性。你完全可以使用代理 有效地规避这种窘境，即创建一个方法通过该类的成员变量直接调用该类的方法。这就是为什 么有的时候我们发现有些类被刻意地声明为final类型:声明为final的类不能被其他的类继 承，避免发生这样的反模式，防止核心代码的功能被污染。注意，有的时候声明为final的类 都会有其不同的原因，比如，String类被声明为final，因为我们不希望有人对这样的核心 功能产生干扰。这种思想同样也适用于使用默认方法的接口。通过精简的接口，你能获得最有效的组合，因为你可以只选择你需要的实现。</p>
-</blockquote>
-<h2 id="解决冲突规则"><a href="#解决冲突规则" class="headerlink" title="解决冲突规则"></a>解决冲突规则</h2><p>随着默认方法的引入，现在有可能一个类实现了多个接口，它们具有相同的函数签名，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public interface A &#123;</span><br><span class="line">    default void hello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello from A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public interface B extends A &#123;</span><br><span class="line">    default void hello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello from B&quot;);</span><br><span class="line">&#125; &#125;</span><br><span class="line">public class C implements B, A &#123;</span><br><span class="line">    public static void main(String... args) &#123;</span><br><span class="line">        new C().hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种情况类会使用哪一个方法呢，这个问题其实就是菱形继承的问题，一个类同时具有相同函数签名的方法，到底选择哪一种实现，java8为了解决这种问题引入了三条规则</p>
-<ol>
-<li>类中的方法优先级最高。类或父类声明的方法优先级高于任何声明默认方法的优先级。</li>
-<li>如果无法依据第一条进行判断，那么子接口的优先级更高，函数签名相同时，优先选择拥有具体实现的默认方法接口，如果B继承了A，那么B就比A更具体。</li>
-<li>如果上述两条规则还是无法判断，继承了多个接口的类必须通过显示覆盖和调用期望方法，显式的选择使用哪一个默认方法实现。</li>
-</ol>
-<p>根据这三条规则，上面的例子可以对照第二条规则，因为B继承了所以B更具体，那么结果打印出来就是<strong><em>Hello From B</em></strong></p>
-<h2 id="java8中接口与抽像类的区别"><a href="#java8中接口与抽像类的区别" class="headerlink" title="java8中接口与抽像类的区别"></a>java8中接口与抽像类的区别</h2><p>现在java8中接口可以有具体的方法，那么他们之间的区别还有哪些</p>
-<ul>
-<li>一个类只能继承一个抽象类，但是一个类可以继承多个接口</li>
-<li>一个抽象类可以通过实例变量保存一个通用的状态，但是接口不能</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2018/01/01/Next主题美化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/01/Next主题美化/" itemprop="url">next主题美化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T20:08:00+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="修改背景"><a href="#修改背景" class="headerlink" title="修改背景"></a>修改背景</h2><p>如果觉得next默认主题的背景颜色太单调，可以自己手动去替换,将下段内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body &#123; </span><br><span class="line">    background:url(/images/background-1.jpeg);</span><br><span class="line">    background-attachment: fixed;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>粘贴到themes/next/source/css/_custom/custom.styl下面，不需要直接去修改系统文件，next支持用户自主扩展</p>
-<h2 id="添加搜索"><a href="#添加搜索" class="headerlink" title="添加搜索"></a>添加搜索</h2><p>当前主题为next5.1.3版本，选择algolia做为站内搜索<br>安装教程可以参考<a href="http://theme-next.iissnan.com/third-party-services.html#search-system" target="_blank" rel="noopener">官方文档</a><br>需要注意的是，按照文档完成之后，可以在algolia网站进行测试<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fn78fnnlrcj31ja0pi3zk.jpg" alt=""><br>但是不管是搜索title，还是tag都搜索不到任何信息，经过多次测试发现默认是按着name匹配<br>可以在下图处添加匹配字段<br><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fn78j9qmy6j31fs0qo0tm.jpg" alt=""><br>而且可以调整匹配顺序，最终测试可以搜索到</p>
-<h2 id="首页文章显示预览"><a href="#首页文章显示预览" class="headerlink" title="首页文章显示预览"></a>首页文章显示预览</h2><p>themes-&gt;next目录下，打开配置文件<strong><em>_config.yml</em></strong><br>搜索<strong><em>auto_excerpt</em></strong>，将下列内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>enable</em></strong>的值改为false即可</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2017/12/31/Hexo博客搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/31/Hexo博客搭建/" itemprop="url">一. Hexo+github博客搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T15:12:33+08:00">
-                2017-12-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>点击下载最新版本的<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a></p>
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Hexo是基于nodeJS环境的静态博客，所以需要下载nodejs，点击下载，然后一直安装，安装完成后可以通过<strong><em>node -v</em></strong>查看当前版本，检查是否安装成功</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>现在本地新建一个文件夹，后面用来存放所有的blog的内容</p>
-<ul>
-<li>cd到该目录下</li>
-<li>通过<strong><em>npm i -g hexo</em></strong>安装hexo</li>
-<li>安装完成之后通过<strong><em>hexo -v</em></strong>查看当前版本</li>
-<li>初始化命令<strong><em>hexo init</em></strong>,初始化完成后会在当前目录下生成以下文件<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6qxpifwdj30p00ac3zy.jpg" alt=""></li>
-<li>node_modules:依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：命令生成文档等的模板</li>
-<li>source：用命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>db.json：source解析所得到的</li>
-<li>package.json：项目所需要模块配置信息</li>
-</ul>
-<hr>
-<h2 id="链接到github"><a href="#链接到github" class="headerlink" title="链接到github"></a>链接到github</h2><h3 id="创建github账户"><a href="#创建github账户" class="headerlink" title="创建github账户"></a>创建github账户</h3><p> 点击去<a href="https://github.com/" target="_blank" rel="noopener">github</a>创建一个账户，如果有登录进去</p>
-<h3 id="创建一个repository"><a href="#创建一个repository" class="headerlink" title="创建一个repository"></a>创建一个repository</h3><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fn6qz2a90aj30iw09u74u.jpg" alt=""><br> <strong><em>仓库名字</em></strong><br><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn6r0ky6e7j30pe07kaaw.jpg" alt=""><br><strong><em>yourname</em></strong>与账户名最好一致，不然后面可能会导致页面css内容无法展示</p>
-<h3 id="回到本地gitbash中，配置账户信息"><a href="#回到本地gitbash中，配置账户信息" class="headerlink" title="回到本地gitbash中，配置账户信息"></a>回到本地gitbash中，配置账户信息</h3><p>命令行输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建ssh"><a href="#创建ssh" class="headerlink" title="创建ssh"></a>创建ssh</h3><p>在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure></p>
-<p>生成ssh文件，mac和linux用户在<strong><em>~/ssh</em></strong>下找到<strong><em>id_rsa.pub</em></strong>，复制文件里面内容</p>
-<h3 id="将生成的内容粘贴到github"><a href="#将生成的内容粘贴到github" class="headerlink" title="将生成的内容粘贴到github"></a>将生成的内容粘贴到github</h3><ul>
-<li>点击下图箭头setting<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6r0xc3pxj30gc0femxy.jpg" alt=""></li>
-<li>点击左侧菜单下图箭头指向栏目<br><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fn6r1l0s23j30i8080t97.jpg" alt=""></li>
-<li>点击右上角<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6r1y6zikj309g032aa2.jpg" alt=""></li>
-<li>将本机<strong><em>id_rsa.pub</em></strong>内容粘贴到key里面</li>
-<li>检验是否添加成功，本地gitbash中输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -T git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="配置本地blog"><a href="#配置本地blog" class="headerlink" title="配置本地blog"></a>配置本地blog</h2><h3 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h3><p>用编辑器打开<strong><em>hexo init</em></strong>目录下的<strong><em>_config.yml</em></strong>配置文件<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6r29a9gij30mk066753.jpg" alt=""><br><strong><em>repo</em></strong>为github上新建的项目地址</p>
-<blockquote>
-<p>注意所有的类型名称冒号后面一定要有空格</p>
-<h3 id="预览本地blog"><a href="#预览本地blog" class="headerlink" title="预览本地blog"></a>预览本地blog</h3><p>hexo3.0把服务器独立成个别模块，需要单独安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-server</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>然后执行以下命令<br>清除本地项目缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></p>
-<p>生成最新项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate(缩写 hexo g)</span><br></pre></td></tr></table></figure></p>
-<p>启动hexo server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
-<p>如果上述步奏全部正确，打开浏览器输入localhost:4000，就可以看到本地项目预览了</p>
-<h2 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h2><p>要想blog被其他人也能访问到,就要上传到<strong>*github</strong><br>gitbash中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>按着下列步骤将本地项目上传到<strong>*github</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
-<h2 id="访问blog"><a href="#访问blog" class="headerlink" title="访问blog"></a>访问blog</h2><p>github中打开blog项目，点击setting<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6r2qwr81j31fe05wwfo.jpg" alt=""><br>下列箭头指向的即为blog访问地址<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fn6r3d59axj31b40b6jt3.jpg" alt=""></p>
-<p>至此大功告成</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrhe.top/2017/12/12/新建一个docker镜像/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harvey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harvey's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/12/新建一个docker镜像/" itemprop="url">制作一个基于集成java和tomcat的docker镜像</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T00:00:00+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="根据当前所处平台安装docker"><a href="#根据当前所处平台安装docker" class="headerlink" title="根据当前所处平台安装docker"></a>根据当前所处平台安装<strong>docker</strong></h2><h2 id="准备安装java，tomcat需要的安装包"><a href="#准备安装java，tomcat需要的安装包" class="headerlink" title="准备安装java，tomcat需要的安装包"></a>准备安装java，tomcat需要的安装包</h2><h2 id="制作镜像"><a href="#制作镜像" class="headerlink" title="制作镜像"></a>制作镜像</h2><h3 id="编写DockerFile"><a href="#编写DockerFile" class="headerlink" title="编写DockerFile"></a>编写DockerFile</h3><h3 id="构建DockerFile"><a href="#构建DockerFile" class="headerlink" title="构建DockerFile"></a>构建DockerFile</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t java7_tomcat7:v1 .</span><br></pre></td></tr></table></figure>
-<ul>
-<li>java7_tomcat7：构建后镜像名字</li>
-<li>v1：构建后的镜像tag</li>
-<li>.：当前路径</li>
-</ul>
-<h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><p>构建成功以后可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
-<p>查看构建成功后的镜像</p>
-<h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><h3 id="输出一个Hello-World之后终止容器"><a href="#输出一个Hello-World之后终止容器" class="headerlink" title="输出一个Hello World之后终止容器"></a>输出一个Hello World之后终止容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run ubuntu:14.04 /bin/echo &apos;Hello World&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="启动一个bash终端允许用户交互"><a href="#启动一个bash终端允许用户交互" class="headerlink" title="启动一个bash终端允许用户交互"></a>启动一个bash终端允许用户交互</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -t -i ubuntu:14.0.4 /bin/bash</span><br></pre></td></tr></table></figure>
-<p>其中-t表示让Docker分配一个伪终端并绑定在标准输入,-i则表示标准输入保持打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -t -i -p 9999:8080 ubuntu:14.0.4 /bin/bash</span><br></pre></td></tr></table></figure>
-<p>-p后面的端口，表示将宿主机器的9999端口绑定到容器的8080端口，可以通过宿主机器ip+9999端口，访问容器内的服务。</p>
-<h2 id="进入正在运行的容器"><a href="#进入正在运行的容器" class="headerlink" title="进入正在运行的容器"></a>进入正在运行的容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach 44fc0f0582d9</span><br></pre></td></tr></table></figure>
-<p>后面的字符串为容器id可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></p>
-<p>查看正在运行的容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>查看所有的容器</p>
-<h2 id="为镜像打标签"><a href="#为镜像打标签" class="headerlink" title="为镜像打标签"></a>为镜像打标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag vpjr:v1 clysheng/vpjr:v1</span><br></pre></td></tr></table></figure>
-<p>vpjr:v1本地镜像名字和tag名字<br>clysheng/vpjr:v1 :修改后的名字</p>
-<h2 id="上传镜像到dockerhub"><a href="#上传镜像到dockerhub" class="headerlink" title="上传镜像到dockerhub"></a>上传镜像到dockerhub</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push clysheng/vpjr:v1</span><br></pre></td></tr></table></figure>
-<p>可以先通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login</span><br></pre></td></tr></table></figure></p>
-<p>登录</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Harvey</p>
-              <p class="site-description motion-element" itemprop="description">再牛逼的梦想，也抵不过傻逼式的坚持</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Harvey</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
 	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
 
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
+    </nav>
+  </div>
+</header>
 
   
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mycat/">Mycat</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/摘抄/">摘抄</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
 
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mycat/">Mycat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java8/">java8</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/">mqtt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摘抄/">摘抄</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/触发器/">触发器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
 
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Mycat/" style="font-size: 13.33px;">Mycat</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/java8/" style="font-size: 13.67px;">java8</a> <a href="/tags/jvm/" style="font-size: 13px;">jvm</a> <a href="/tags/mqtt/" style="font-size: 13px;">mqtt</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a> <a href="/tags/springboot/" style="font-size: 13px;">springboot</a> <a href="/tags/vim/" style="font-size: 13px;">vim</a> <a href="/tags/学习笔记/" style="font-size: 13px;">学习笔记</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/工具/" style="font-size: 13px;">工具</a> <a href="/tags/摘抄/" style="font-size: 13px;">摘抄</a> <a href="/tags/触发器/" style="font-size: 13px;">触发器</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a>
+    </div>
+  </div>
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/jvm/">jvm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/08/虚拟机类加载机制/" class="title">虚拟机类加载机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-08T06:26:00.000Z" itemprop="datePublished">2020-03-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/docker/">docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/20/docker搭建redis-cluster集群/" class="title">docker搭建redis-cluster集群</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-20T06:00:00.000Z" itemprop="datePublished">2019-03-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Mycat/">Mycat</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/02/20/Mycat实现读写分离(二)/" class="title">Mycat实现读写分离</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-02-20T06:45:00.000Z" itemprop="datePublished">2019-02-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Mycat/">Mycat</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/02/20/Mycat概述(一)/" class="title">Mycat概述</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-02-20T06:45:00.000Z" itemprop="datePublished">2019-02-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/springboot/">springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/12/25/springboot的jar文件包在linux下启动方式/" class="title">springboot的jar包在linux下启动方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-12-25T12:05:00.000Z" itemprop="datePublished">2018-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
   
 
-  
+    
+  </div>
+</aside>
 
   
+  <main class="main" role="main">
+  
+  <div class="content article-list">
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/16/精力管理/">精力管理</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/16/精力管理/" class="article-date">
+	  <time datetime="2018-01-16T07:00:00.000Z" itemprop="datePublished">Jan 16</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/读书笔记/">读书笔记</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/16/精力管理/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/CompletableFuture组合式异步编程/">CompletableFuture组合式异步编程</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/10/CompletableFuture组合式异步编程/" class="article-date">
+	  <time datetime="2018-01-10T13:00:00.000Z" itemprop="datePublished">Jan 10</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java8/">java8</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/10/CompletableFuture组合式异步编程/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/如何阅读一本书/">如何阅读一本书</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/10/如何阅读一本书/" class="article-date">
+	  <time datetime="2018-01-10T13:00:00.000Z" itemprop="datePublished">Jan 10</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/读书笔记/">读书笔记</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/10/如何阅读一本书/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/摘抄/">摘抄</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/10/摘抄/" class="article-date">
+	  <time datetime="2018-01-10T13:00:00.000Z" itemprop="datePublished">Jan 10</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/摘抄/">摘抄</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/摘抄/">摘抄</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/10/摘抄/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/09/java8 Optional.1/">Optional</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/09/java8 Optional.1/" class="article-date">
+	  <time datetime="2018-01-09T01:30:00.000Z" itemprop="datePublished">Jan 9</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java8/">java8</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/09/java8 Optional.1/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/06/工作中一次触发器的使用/">工作中一次触发器的使用</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/06/工作中一次触发器的使用/" class="article-date">
+	  <time datetime="2018-01-06T12:00:00.000Z" itemprop="datePublished">Jan 6</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/工作/">工作</a>, <a class="article-tag-link" href="/tags/触发器/">触发器</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/06/工作中一次触发器的使用/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/06/java8默认方法/">java8默认方法</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/06/java8默认方法/" class="article-date">
+	  <time datetime="2018-01-06T01:30:00.000Z" itemprop="datePublished">Jan 6</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java8/">java8</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/06/java8默认方法/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/01/Next主题美化/">next主题美化</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/01/Next主题美化/" class="article-date">
+	  <time datetime="2018-01-01T12:08:00.000Z" itemprop="datePublished">Jan 1</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Hexo/">Hexo</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/01/Next主题美化/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/Hexo博客搭建/">一. Hexo+github博客搭建</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/12/31/Hexo博客搭建/" class="article-date">
+	  <time datetime="2017-12-31T07:12:33.000Z" itemprop="datePublished">Dec 31</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Hexo/">Hexo</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/12/31/Hexo博客搭建/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/新建一个docker镜像/">制作一个基于集成java和tomcat的docker镜像</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/12/12/新建一个docker镜像/" class="article-date">
+	  <time datetime="2017-12-11T16:00:00.000Z" itemprop="datePublished">Dec 12</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/docker/">docker</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/12/12/新建一个docker镜像/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+  </div>
 
   
-  
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/">
+                    <i class="icon icon-angle-left"></i>
+                    Prev
+                </a>
+            </li>
+            
+            
+            <li class="next disabled">
+                <a href="javascript:;">
+                    Next
+                    <i class="icon icon-angle-right"></i>                    
+                </a>
+            </li>
+            
+        </ul>
+        <div class="total-article bar-right">Page 2 of 2</div>
+        </div>
+    </nav>
+    
+ 
+</main>
 
-  
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
 
-  
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
 
-  
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
 
 </body>
 </html>
