@@ -27,7 +27,7 @@
 <meta property="og:description" content="一. 概述虚拟机把描述类的数据，从class文件加载到内存,并对数据进行校验，解析，初始化，最终形成可以虚拟机直接使用的java类型，就是虚拟机的类加载机制。 二. 类的加载时机类从加载到虚拟机内存开始，到卸载出内存为止，整个生命周期包括图上7个阶段  其中加载，验证，准备，初始化，卸载五个阶段的执行顺序是确定的，而解析阶段不一定，可以在初始化之后开始。 java虚拟机中没有明确规范什么时候类加载">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gcmiv7gkq8j30ie05wwel.jpg">
-<meta property="og:updated_time" content="2020-03-08T12:37:24.679Z">
+<meta property="og:updated_time" content="2020-03-08T12:40:59.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机类加载机制">
 <meta name="twitter:description" content="一. 概述虚拟机把描述类的数据，从class文件加载到内存,并对数据进行校验，解析，初始化，最终形成可以虚拟机直接使用的java类型，就是虚拟机的类加载机制。 二. 类的加载时机类从加载到虚拟机内存开始，到卸载出内存为止，整个生命周期包括图上7个阶段  其中加载，验证，准备，初始化，卸载五个阶段的执行顺序是确定的，而解析阶段不一定，可以在初始化之后开始。 java虚拟机中没有明确规范什么时候类加载">
@@ -417,8 +417,7 @@
 </li>
 </ol>
 <p>这六种场景中的行为称为对一个类型的主动引用，除此之外所有引用类型的方式都不会主动触发初始化，称为被动引用。</p>
-<p>#三. 类加载的过程</p>
-<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>加载是类加载的一个阶段，在这个阶段，虚拟机需要完成以下三件事：</p>
+<h1 id="三-类加载的过程"><a href="#三-类加载的过程" class="headerlink" title="三. 类加载的过程"></a>三. 类加载的过程</h1><h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>加载是类加载的一个阶段，在这个阶段，虚拟机需要完成以下三件事：</p>
 <ul>
 <li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
 <li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
